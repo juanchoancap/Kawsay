@@ -1,20 +1,20 @@
-import  {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Start from "../calculator/Start";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Calculator from "../Calculator/Calculator";
 
 const QuestionsListContainer = () => {
-    return (
-        <>
-        <div>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path to="/">
-                        <Start />
-                    </Route>
-                </Switch>
-            </BrowserRouter>
-        </div>
-        </>
-    );
+  return (
+    <>
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path to="/">
+              <Calculator />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </>
+  );
 };
 
 export default QuestionsListContainer;

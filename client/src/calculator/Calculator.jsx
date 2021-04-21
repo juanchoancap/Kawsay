@@ -14,6 +14,7 @@ export default function Calculator() {
     question5B: false,
     result: false,
   });
+
   const [input, setInput] = useState({
     //electrico
     people: 1,
@@ -48,6 +49,9 @@ export default function Calculator() {
     gasTotal: 0,
     total: 0,
   });
+
+  const [location, setLocation] = useState("start");
+
   const handleInput = (e) => {
     setInput({
       ...input,
@@ -56,8 +60,9 @@ export default function Calculator() {
   };
 
   const handleButton = () => {
-    switch (page) {
-      case start:
+    switch (location) {
+      case "start":
+        console.log("mortadela");
         setInput({
           people: 1,
           pc: false,
@@ -87,35 +92,49 @@ export default function Calculator() {
           gasTotal: 0,
           total: 0,
         });
-        setPage({ ...page, [page.start]: false, [page.question1]: true });
+        setPage({
+          ...page,
+          [page.start]: !page.start,
+          [page.question1]: !page.question1,
+        });
+        setLocation("question1");
         break;
-      case question1:
+      case "question1":
         setPage({ ...page, [page.question1]: false, [page.question2]: true });
+        setLocation("question2");
+        console.log("mortadela2 es" + page.question1);
+
         break;
-      case question2:
+      case "question2":
         setPage({ ...page, [page.question2]: false, [page.question3]: true });
+        setLocation("question3");
         break;
-      case question3:
+      case "question3":
         setPage({ ...page, [page.question3]: false, [page.question4]: true });
+        setLocation("question4");
         break;
-      case question4:
+      case "question4":
         if (input.useCar) {
           setPage({
             ...page,
             [page.question4]: false,
             [page.question4A]: true,
           });
+          setLocation("question4A");
         } else {
           setPage({ ...page, [page.question4]: false, [page.question5]: true });
+          setLocation("question5");
         }
         break;
-      case question4A:
+      case "question4A":
         setPage({ ...page, [page.question4A]: false, [page.question4B]: true });
+        setLocation("question4B");
         break;
-      case question4B:
+      case "question4B":
         setPage({ ...page, [page.question4B]: false, [page.question5]: true });
+        setLocation("question5");
         break;
-      case question5:
+      case "question5":
         if (input.pc) {
           setInput({
             ...input,
@@ -191,14 +210,17 @@ export default function Calculator() {
             [page.question5]: false,
             [page.question5A]: true,
           });
+          setLocation("question5A");
         } else {
           setPage({ ...page, [page.question5]: false, [page.result]: true });
+          setLocation("result");
         }
         break;
-      case question5A:
+      case "question5A":
         setPage({ ...page, [page.question5A]: false, [page.question5B]: true });
+        setLocation("question5B");
         break;
-      case question5B:
+      case "question5B":
         var quantity = 0;
         if (input.train) {
           quantity++;
@@ -231,9 +253,11 @@ export default function Calculator() {
           [input.total]: input.total + input.publicTotal / quantity,
         });
         setPage({ ...page, [page.question5B]: false, [page.result]: true });
+        setLocation("result");
         break;
       default:
         setPage({ ...page, [page.result]: false, [page.start]: true });
+        setLocation("start");
         break;
     }
   };
@@ -264,7 +288,13 @@ export default function Calculator() {
       ) : (
         <div />
       )}
-      {page.question1 ? <div></div> : <div />}
+      {page.question1 ? (
+        <div>
+          <h1>¿Sabias que la mortadela es piola?</h1>
+        </div>
+      ) : (
+        <div />
+      )}
       {page.question2 ? <div></div> : <div />}
       {page.question3 ? <div></div> : <div />}
       {page.question4 ? <div></div> : <div />}
