@@ -1,12 +1,13 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
-import questionsListContainer from "./Container/container";
+import NavBar from "./Components/NavBar";
+import QuestionsListContainer from "./Container/container";
 
 function App() {
   return (
     <>
-    {/* Navbar */}
-    <questionsListContainer />
+    <NavBar />
+    <QuestionsListContainer />
     {/* Footer */}
     </>
   );

@@ -1,7 +1,7 @@
 import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Start from "../calculator/Start";
 
-const questionsListContainer = () => {
+const QuestionsListContainer = () => {
     return (
         <>
         <div>
@@ -17,4 +17,4 @@ const questionsListContainer = () => {
     );
 };
 
-export default questionsListContainer;
+export default QuestionsListContainer;
