@@ -15,6 +15,7 @@ export default function Calculator() {
     result: false,
   });
   const [input, setInput] = useState({
+    //electrico
     people: 1,
     pc: false,
     radio: false,
@@ -25,14 +26,24 @@ export default function Calculator() {
     lavarropa: false,
     heladera: false,
     tv: false,
+    //gas
     cocina: false,
     termotanque: false,
     estufa: false,
+    //auto
     useCar: false,
-    carDistance: 1,
+    carDistance: 0,
     carShare: 1,
+    //transporte publico
     publicTransport: false,
-    publicDistance: 1,
+    train: false,
+    subway: false,
+    bus: false,
+    taxi: false,
+    publicHours: 1,
+    //totales
+    publicTotal: 0,
+    carTotal: 0,
     electricTotal: 0,
     gasTotal: 0,
     total: 0,
@@ -43,9 +54,39 @@ export default function Calculator() {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleButton = () => {
     switch (page) {
       case start:
+        setInput({
+          people: 1,
+          pc: false,
+          radio: false,
+          impresora: false,
+          microondas: false,
+          dispenser: false,
+          pava: false,
+          lavarropa: false,
+          heladera: false,
+          tv: false,
+          cocina: false,
+          termotanque: false,
+          estufa: false,
+          useCar: false,
+          carDistance: 0,
+          carShare: 1,
+          publicTransport: false,
+          train: false,
+          subway: false,
+          bus: false,
+          taxi: false,
+          publicHours: 1,
+          publicTotal: 0,
+          carTotal: 0,
+          electricTotal: 0,
+          gasTotal: 0,
+          total: 0,
+        });
         setPage({ ...page, [page.start]: false, [page.question1]: true });
         break;
       case question1:
@@ -138,13 +179,62 @@ export default function Calculator() {
         if (input.estufa) {
           setInput({ ...input, [input.gasTotal]: input.gasTotal + 0.5558 });
         }
-        var subTotal =
-          (input.electricTotal * 6 * 365 + input.gasTotal * 4 * 365) /
+        let subTotal =
+          (input.electricTotal * 6 * 365 +
+            input.gasTotal * 4 * 365 +
+            (input.carTotal * input.carDistance) / input.carShare) /
           input.people;
         setInput({ ...input, [input.total]: subTotal });
         if (input.publicTransport) {
-          //para pasar a la 5A
+          setPage({
+            ...page,
+            [page.question5]: false,
+            [page.question5A]: true,
+          });
+        } else {
+          setPage({ ...page, [page.question5]: false, [page.result]: true });
         }
+        break;
+      case question5A:
+        setPage({ ...page, [page.question5A]: false, [page.question5B]: true });
+        break;
+      case question5B:
+        var quantity = 0;
+        if (input.train) {
+          quantity++;
+          let train = ((0.005 * 50 * input.publicHours) / 737) * 240;
+          setInput({
+            ...input,
+            [input.publicTotal]: input.publicTotal + train,
+          });
+        }
+        if (input.subway) {
+          quantity++;
+          let subway = ((0.036 * 50 * input.publicHours) / 255) * 240;
+          setInput({
+            ...input,
+            [input.publicTotal]: input.publicTotal + subway,
+          });
+        }
+        if (input.bus) {
+          quantity++;
+          let bus = ((0.05 * 50 * input.publicHours) / 25) * 240;
+          setInput({ ...input, [input.publicTotal]: input.publicTotal + bus });
+        }
+        if (input.taxi) {
+          quantity++;
+          let taxi = ((0.15 * 50 * input.publicHours) / 2) * 240;
+          setInput({ ...input, [input.publicTotal]: input.publicTotal + taxi });
+        }
+        setInput({
+          ...input,
+          [input.total]: input.total + input.publicTotal / quantity,
+        });
+        setPage({ ...page, [page.question5B]: false, [page.result]: true });
+        break;
+      default:
+        setPage({ ...page, [page.result]: false, [page.start]: true });
+        break;
     }
   };
   return (
@@ -183,6 +273,7 @@ export default function Calculator() {
       {page.question5 ? <div></div> : <div />}
       {page.question5A ? <div></div> : <div />}
       {page.question5B ? <div></div> : <div />}
+      {page.result ? <div></div> : <div />}
     </div>
   );
 }
