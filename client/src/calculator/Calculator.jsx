@@ -47,7 +47,7 @@ export default function Calculator() {
     carTotal: 0,
     electricTotal: 0,
     gasTotal: 0,
-    total: 0,
+    total: 1,
   });
 
   const [location, setLocation] = useState("start");
@@ -83,7 +83,7 @@ export default function Calculator() {
           carTotal: 0,
           electricTotal: 0,
           gasTotal: 0,
-          total: 0,
+          total: 1,
         });
         setPage({
           ...page,
@@ -190,12 +190,19 @@ export default function Calculator() {
         if (input.estufa) {
           setInput({ ...input, gasTotal: input.gasTotal + 0.5558 });
         }
-        let subTotal =
+        /* let subTotal =
           (input.electricTotal * 6 * 365 +
             input.gasTotal * 4 * 365 +
             (input.carTotal * input.carDistance) / input.carShare) /
-          input.people;
-        setInput({ ...input, total: subTotal });
+          input.people; */
+        setInput({
+          ...input,
+          total:
+            (input.electricTotal * 6 * 365 +
+              input.gasTotal * 4 * 365 +
+              (input.carTotal * input.carDistance) / input.carShare) /
+            input.people,
+        });
         if (input.publicTransport) {
           setPage({
             ...page,
@@ -242,7 +249,7 @@ export default function Calculator() {
         }
         setInput({
           ...input,
-          [input.total]: input.total + input.publicTotal / quantity,
+          total: input.total + input.publicTotal / quantity,
         });
         setPage({ ...page, question5B: false, result: true });
         setLocation("result");
@@ -478,6 +485,7 @@ export default function Calculator() {
       ) : (
         <div />
       )}
+      {/* question 4B */}
       {page.question4B ? (
         <div>
           <h2>¿Cuantas personas comparten tu auto habitualmente?</h2>
@@ -493,10 +501,91 @@ export default function Calculator() {
       ) : (
         <div />
       )}
-      {page.question5 ? <div></div> : <div />}
-      {page.question5A ? <div></div> : <div />}
-      {page.question5B ? <div></div> : <div />}
-      {page.result ? <div></div> : <div />}
+      {/* question 5 */}
+      {page.question5 ? (
+        <div>
+          <h2>¿Usas con frecuencia transporte publico?</h2>
+          <input
+            type="checkbox"
+            name="publicTransport"
+            value={input.publicTransport}
+            checked={input.publicTransport}
+            defaultChecked={false}
+            onClick={() =>
+              setInput({ ...input, publicTransport: !input.publicTransport })
+            }
+          />
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {page.question5A ? (
+        <div>
+          <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
+          <h1>(puede marcar tantos como quiera)</h1>
+          <div>
+            <input
+              type="checkbox"
+              name="bus"
+              value={input.bus}
+              checked={input.bus}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, bus: !input.bus })}
+            />
+            Bus
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="subway"
+              value={input.subway}
+              checked={input.subway}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, subway: !input.subway })}
+            />
+            Subte
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="train"
+              value={input.train}
+              checked={input.train}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, train: !input.train })}
+            />
+            Tren
+          </div>
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {/* question 5B */}
+      {page.question5B ? (
+        <div>
+          <h2>¿Cuantas horas diarias viajas en transporte publico?</h2>
+          <input
+            type="number"
+            name="publicHours"
+            value={input.publicHours}
+            onChange={handleInput}
+            placeholder="Ingrese la cantidad"
+          />
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {page.result ? (
+        <div>
+          <h3>El Resultado es: {input.total}</h3>
+          <button onClick={() => handleButton()}>Reiniciar</button>
+        </div>
+      ) : (
+        <div />
+      )}
     </div>
   );
 }
