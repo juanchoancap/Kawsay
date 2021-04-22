@@ -2,7 +2,7 @@ const NavBar = () => {
     return (
         <>
         <h1>
-            Kawasi
+            Soy el navbar de Kawsai
         </h1>
         </>
     );

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Question2(props) {
   const location = useLocation();
-  const { push } = useHistory();
+  // const { push } = useHistory();
   const [input, setInput] = useState({
     pc: false,
     radio: false,

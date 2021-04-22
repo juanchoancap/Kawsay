@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function Calculator() {
   const [page, setPage] = useState({
@@ -94,44 +94,44 @@ export default function Calculator() {
         });
         setPage({
           ...page,
-          [page.start]: !page.start,
-          [page.question1]: !page.question1,
+          start: false,
+          question1: true,
         });
         setLocation("question1");
         break;
       case "question1":
-        setPage({ ...page, [page.question1]: false, [page.question2]: true });
+        setPage({ ...page, question1: false, question2: true });
         setLocation("question2");
         console.log("mortadela2 es" + page.question1);
 
         break;
       case "question2":
-        setPage({ ...page, [page.question2]: false, [page.question3]: true });
+        setPage({ ...page, question2: false, question3: true });
         setLocation("question3");
         break;
       case "question3":
-        setPage({ ...page, [page.question3]: false, [page.question4]: true });
+        setPage({ ...page, question3: false, question4: true });
         setLocation("question4");
         break;
       case "question4":
         if (input.useCar) {
           setPage({
             ...page,
-            [page.question4]: false,
-            [page.question4A]: true,
+            question4: false,
+            question4A: true,
           });
           setLocation("question4A");
         } else {
-          setPage({ ...page, [page.question4]: false, [page.question5]: true });
+          setPage({ ...page, question4: false, question5: true });
           setLocation("question5");
         }
         break;
       case "question4A":
-        setPage({ ...page, [page.question4A]: false, [page.question4B]: true });
+        setPage({ ...page, question4A: false, question4B: true });
         setLocation("question4B");
         break;
       case "question4B":
-        setPage({ ...page, [page.question4B]: false, [page.question5]: true });
+        setPage({ ...page, question4B: false, question5: true });
         setLocation("question5");
         break;
       case "question5":
@@ -207,17 +207,17 @@ export default function Calculator() {
         if (input.publicTransport) {
           setPage({
             ...page,
-            [page.question5]: false,
-            [page.question5A]: true,
+            question5: false,
+            question5A: true,
           });
           setLocation("question5A");
         } else {
-          setPage({ ...page, [page.question5]: false, [page.result]: true });
+          setPage({ ...page, question5: false, result: true });
           setLocation("result");
         }
         break;
       case "question5A":
-        setPage({ ...page, [page.question5A]: false, [page.question5B]: true });
+        setPage({ ...page, question5A: false, question5B: true });
         setLocation("question5B");
         break;
       case "question5B":
@@ -252,11 +252,11 @@ export default function Calculator() {
           ...input,
           [input.total]: input.total + input.publicTotal / quantity,
         });
-        setPage({ ...page, [page.question5B]: false, [page.result]: true });
+        setPage({ ...page, question5B: false, result: true });
         setLocation("result");
         break;
       default:
-        setPage({ ...page, [page.result]: false, [page.start]: true });
+        setPage({ ...page, result: false, start: true });
         setLocation("start");
         break;
     }
@@ -290,12 +290,75 @@ export default function Calculator() {
       )}
       {page.question1 ? (
         <div>
-          <h1>¿Sabias que la mortadela es piola?</h1>
+          <h2>¿Con cuanta gente vives?</h2>
+      <input
+        name="people"        
+        value={input.people}
+        placeholder="Ingrese la cantidad"
+      />
+      <button
+        onClick={() =>
+          handleButton()}>Continuar</button>
         </div>
       ) : (
         <div />
       )}
-      {page.question2 ? <div></div> : <div />}
+      {page.question2 ? <div>
+        <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
+      <h1>(puede marcar tantos como quiera)</h1>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, pc: false })}
+        checked={false}
+      >
+        PC
+      </input>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, radio: false })}
+        checked={false}
+      >
+        Radio
+      </input>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, impresora: false })}
+        checked={false}
+      >
+        Impresora
+      </input>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, microondas: false })}
+        checked={false}
+      >
+        Microondas
+      </input>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, dispenser: !false })}
+        checked={false}
+      >
+        Dispenser
+      </input>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, pava: false })}
+        checked={false}
+      >
+        Pava electrica
+      </input>
+      <input
+        type="checkbox"
+        onClick={setInput({ ...input, lavarropa: false })}
+        checked={false}
+      >
+        Lavarropa
+      </input>
+      <button
+        onClick={() =>
+          handleButton()}>Continuar</button>
+      </div> : <div />}
       {page.question3 ? <div></div> : <div />}
       {page.question4 ? <div></div> : <div />}
       {page.question4A ? <div></div> : <div />}
@@ -306,4 +369,4 @@ export default function Calculator() {
       {page.result ? <div></div> : <div />}
     </div>
   );
-}
+};
