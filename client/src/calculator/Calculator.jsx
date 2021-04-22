@@ -52,13 +52,6 @@ export default function Calculator() {
 
   const [location, setLocation] = useState("start");
 
-  const handleInput = (e) => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleButton = () => {
     switch (location) {
       case "start":
@@ -102,12 +95,11 @@ export default function Calculator() {
       case "question1":
         setPage({ ...page, question1: false, question2: true });
         setLocation("question2");
-        console.log("mortadela2 es" + page.question1);
-
         break;
       case "question2":
         setPage({ ...page, question2: false, question3: true });
         setLocation("question3");
+        console.log(input.pc);
         break;
       case "question3":
         setPage({ ...page, question3: false, question4: true });
@@ -138,72 +130,72 @@ export default function Calculator() {
         if (input.pc) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.0106,
+            electricTotal: input.electricTotal + 0.0106,
           });
         }
         if (input.radio) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.029,
+            electricTotal: input.electricTotal + 0.029,
           });
         }
         if (input.impresora) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.4355,
+            electricTotal: input.electricTotal + 0.4355,
           });
         }
         if (input.microondas) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.3097,
+            electricTotal: input.electricTotal + 0.3097,
           });
         }
         if (input.dispenser) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.121,
+            electricTotal: input.electricTotal + 0.121,
           });
         }
         if (input.pava) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 1.1613,
+            electricTotal: input.electricTotal + 1.1613,
           });
         }
         if (input.lavarropa) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.9481,
+            electricTotal: input.electricTotal + 0.9481,
           });
         }
         if (input.heladera) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.0564,
+            electricTotal: input.electricTotal + 0.0564,
           });
         }
         if (input.tv) {
           setInput({
             ...input,
-            [input.electricTotal]: input.electricTotal + 0.0263,
+            electricTotal: input.electricTotal + 0.0263,
           });
         }
         if (input.cocina) {
-          setInput({ ...input, [input.gasTotal]: input.gasTotal + 0.0228 });
+          setInput({ ...input, gasTotal: input.gasTotal + 0.0228 });
         }
         if (input.termotanque) {
-          setInput({ ...input, [input.gasTotal]: input.gasTotal + 0.0228 });
+          setInput({ ...input, gasTotal: input.gasTotal + 0.0228 });
         }
         if (input.estufa) {
-          setInput({ ...input, [input.gasTotal]: input.gasTotal + 0.5558 });
+          setInput({ ...input, gasTotal: input.gasTotal + 0.5558 });
         }
         let subTotal =
           (input.electricTotal * 6 * 365 +
             input.gasTotal * 4 * 365 +
             (input.carTotal * input.carDistance) / input.carShare) /
           input.people;
-        setInput({ ...input, [input.total]: subTotal });
+        setInput({ ...input, total: subTotal });
         if (input.publicTransport) {
           setPage({
             ...page,
@@ -227,7 +219,7 @@ export default function Calculator() {
           let train = ((0.005 * 50 * input.publicHours) / 737) * 240;
           setInput({
             ...input,
-            [input.publicTotal]: input.publicTotal + train,
+            publicTotal: input.publicTotal + train,
           });
         }
         if (input.subway) {
@@ -235,18 +227,18 @@ export default function Calculator() {
           let subway = ((0.036 * 50 * input.publicHours) / 255) * 240;
           setInput({
             ...input,
-            [input.publicTotal]: input.publicTotal + subway,
+            publicTotal: input.publicTotal + subway,
           });
         }
         if (input.bus) {
           quantity++;
           let bus = ((0.05 * 50 * input.publicHours) / 25) * 240;
-          setInput({ ...input, [input.publicTotal]: input.publicTotal + bus });
+          setInput({ ...input, publicTotal: input.publicTotal + bus });
         }
         if (input.taxi) {
           quantity++;
           let taxi = ((0.15 * 50 * input.publicHours) / 2) * 240;
-          setInput({ ...input, [input.publicTotal]: input.publicTotal + taxi });
+          setInput({ ...input, publicTotal: input.publicTotal + taxi });
         }
         setInput({
           ...input,
@@ -261,8 +253,17 @@ export default function Calculator() {
         break;
     }
   };
+
+  const handleInput = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div>
+      {/* start */}
       {page.start ? (
         <div>
           <h3>¡Bienvenido a Kawsay!</h3>
@@ -288,85 +289,214 @@ export default function Calculator() {
       ) : (
         <div />
       )}
+      {/* question1 */}
       {page.question1 ? (
         <div>
           <h2>¿Con cuanta gente vives?</h2>
-      <input
-        name="people"        
-        value={input.people}
-        placeholder="Ingrese la cantidad"
-      />
-      <button
-        onClick={() =>
-          handleButton()}>Continuar</button>
+          <input
+            type="number"
+            name="people"
+            value={input.people}
+            onChange={handleInput}
+            placeholder="Ingrese la cantidad"
+          />
+          <button onClick={() => handleButton()}>Continuar</button>
         </div>
       ) : (
         <div />
       )}
-      {page.question2 ? <div>
-        <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
-      <h1>(puede marcar tantos como quiera)</h1>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, pc: false })}
-        checked={false}
-      >
-        PC
-      </input>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, radio: false })}
-        checked={false}
-      >
-        Radio
-      </input>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, impresora: false })}
-        checked={false}
-      >
-        Impresora
-      </input>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, microondas: false })}
-        checked={false}
-      >
-        Microondas
-      </input>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, dispenser: !false })}
-        checked={false}
-      >
-        Dispenser
-      </input>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, pava: false })}
-        checked={false}
-      >
-        Pava electrica
-      </input>
-      <input
-        type="checkbox"
-        onClick={setInput({ ...input, lavarropa: false })}
-        checked={false}
-      >
-        Lavarropa
-      </input>
-      <button
-        onClick={() =>
-          handleButton()}>Continuar</button>
-      </div> : <div />}
-      {page.question3 ? <div></div> : <div />}
-      {page.question4 ? <div></div> : <div />}
-      {page.question4A ? <div></div> : <div />}
-      {page.question4B ? <div></div> : <div />}
+      {/* question2 */}
+      {page.question2 ? (
+        <div>
+          <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
+          <h1>(puede marcar tantos como quiera)</h1>
+          <div>
+            <input
+              type="checkbox"
+              name="pc"
+              value={input.pc}
+              checked={input.pc}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, pc: !input.pc })}
+            />
+            PC
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="radio"
+              value={input.radio}
+              checked={input.radio}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, radio: !input.radio })}
+            />
+            Radio
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="impresora"
+              value={input.impresora}
+              checked={input.impresora}
+              defaultChecked={false}
+              onClick={() =>
+                setInput({ ...input, impresora: !input.impresora })
+              }
+            />
+            Impresora
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="microondas"
+              value={input.microondas}
+              checked={input.microondas}
+              defaultChecked={false}
+              onClick={() =>
+                setInput({ ...input, microondas: !input.microondas })
+              }
+            />
+            Microondas
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="dispenser"
+              value={input.dispenser}
+              checked={input.dispenser}
+              defaultChecked={false}
+              onClick={() =>
+                setInput({ ...input, dispenser: !input.dispenser })
+              }
+            />
+            Dispenser
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="pava"
+              value={input.pava}
+              checked={input.pava}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, pava: !input.pava })}
+            />
+            Pava electrica
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="lavarropa"
+              value={input.lavarropa}
+              checked={input.lavarropa}
+              defaultChecked={false}
+              onClick={() =>
+                setInput({ ...input, lavarropa: !input.lavarropa })
+              }
+            />
+            Lavarropa
+          </div>
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {/* question 3 */}
+      {page.question3 ? (
+        <div>
+          <h2>¿Cuales de estos utilizas con frecuencia?</h2>
+          <h1>(puede marcar tantos como quiera)</h1>
+          <div>
+            <input
+              type="checkbox"
+              name="cocina"
+              value={input.cocina}
+              checked={input.cocina}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, cocina: !input.cocina })}
+            />
+            Cocina
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="termotanque"
+              value={input.termotanque}
+              checked={input.termotanque}
+              defaultChecked={false}
+              onClick={() =>
+                setInput({ ...input, termotanque: !input.termotanque })
+              }
+            />
+            Termotanque
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="estufa"
+              value={input.estufa}
+              checked={input.estufa}
+              defaultChecked={false}
+              onClick={() => setInput({ ...input, estufa: !input.estufa })}
+            />
+            Estufa
+          </div>
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {/* question 4 */}
+      {page.question4 ? (
+        <div>
+          <h2>¿Tenes vehiculo propio?</h2>
+          <input
+            type="checkbox"
+            name="useCar"
+            value={input.useCar}
+            checked={input.useCar}
+            defaultChecked={false}
+            onClick={() => setInput({ ...input, useCar: !input.useCar })}
+          />
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {/* question 4A */}
+      {page.question4A ? (
+        <div>
+          <h2>¿Que distancia recorres aprox. al mes?</h2>
+          <input
+            type="number"
+            name="carDistance"
+            value={input.carDistance}
+            onChange={handleInput}
+            placeholder="Ingrese la cantidad"
+          />
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
+      {page.question4B ? (
+        <div>
+          <h2>¿Cuantas personas comparten tu auto habitualmente?</h2>
+          <input
+            type="number"
+            name="carShare"
+            value={input.carShare}
+            onChange={handleInput}
+            placeholder="Ingrese la cantidad"
+          />
+          <button onClick={() => handleButton()}>Continuar</button>
+        </div>
+      ) : (
+        <div />
+      )}
       {page.question5 ? <div></div> : <div />}
       {page.question5A ? <div></div> : <div />}
       {page.question5B ? <div></div> : <div />}
       {page.result ? <div></div> : <div />}
     </div>
   );
-};
+}
