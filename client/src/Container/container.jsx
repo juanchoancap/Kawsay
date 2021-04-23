@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Calculator from "../Calculator/Calculator";
+import Calculator from "../calculator/Calculator";
 
 const QuestionsListContainer = () => {
   return (

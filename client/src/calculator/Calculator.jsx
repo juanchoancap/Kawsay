@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, Container } from "react-bootstrap";
 
 export default function Calculator() {
   const [input, setInput] = useState({
@@ -195,27 +196,27 @@ export default function Calculator() {
   };
 
   return (
-    <div>
+    <Container>
       {/* start */}
-      {location == "start" ? (
+      {location === "start" ? (
         <div>
-          <h3>¡Bienvenido a Kawsay!</h3>
+          <h1 className="my-4 text-center text-muted">¡Bienvenido a Kawsay!</h1>
           <div>
-            <h2>La huella del Carbono</h2>
-            <h1>
+            <h3 className="my-2 pb-5 text-center text-muted">La huella del Carbono</h3>
+            <h4 className="my-2 pb-5 font-italic text-muted">
               ¿Sabías que con nuestro estilo de vida moderno, cada persona
               genera alrededor de cuatro toneladas de CO2 al año?
-            </h1>
-            <h1>
+            </h4>
+            <h4 className="my-2 pb-5 font-italic text-muted">
               Una de las principales causas del calentamiento global es la
               emisión de gases de efecto invernadero, entre ellos y
               principalmente, el CO2. La marca que se deja sobre el medio
               ambiente con cada actividad que emite gases de efecto invernadero
               es conocida como huella de carbono.
-            </h1>
-            <h1>¿Te gustaria conocer tu huella de Carbono?</h1>
+            </h4>
+            <h4 className="my-2 pb-5 font-italic text-muted">¿Te gustaria conocer tu huella de Carbono?</h4>
             <div>
-              <button onClick={() => handleButton()}>Calcular</button>
+              <Button variant="info" size="lg" onClick={() => handleButton()}>Calcular</Button>
             </div>
           </div>
         </div>
@@ -223,7 +224,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question1 */}
-      {location == "question1" ? (
+      {location === "question1" ? (
         <div>
           <h2>¿Con cuanta gente vives?</h2>
           <input
@@ -239,7 +240,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question2 */}
-      {location == "question2" ? (
+      {location === "question2" ? (
         <div>
           <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
           <h1>(puede marcar tantos como quiera)</h1>
@@ -334,7 +335,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 3 */}
-      {location == "question3" ? (
+      {location === "question3" ? (
         <div>
           <h2>¿Cuales de estos utilizas con frecuencia?</h2>
           <h1>(puede marcar tantos como quiera)</h1>
@@ -379,7 +380,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 4 */}
-      {location == "question4" ? (
+      {location === "question4" ? (
         <div>
           <h2>¿Tenes vehiculo propio?</h2>
           <input
@@ -396,7 +397,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 4A */}
-      {location == "question4A" ? (
+      {location === "question4A" ? (
         <div>
           <h2>¿Que distancia recorres aprox. al mes?</h2>
           <input
@@ -412,7 +413,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 4B */}
-      {location == "question4B" ? (
+      {location === "question4B" ? (
         <div>
           <h2>¿Cuantas personas comparten tu auto habitualmente?</h2>
           <input
@@ -428,7 +429,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 5 */}
-      {location == "question5" ? (
+      {location === "question5" ? (
         <div>
           <h2>¿Usas con frecuencia transporte publico?</h2>
           <input
@@ -447,7 +448,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 5A */}
-      {location == "question5A" ? (
+      {location === "question5A" ? (
         <div>
           <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
           <h1>(puede marcar tantos como quiera)</h1>
@@ -490,7 +491,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 5B */}
-      {location == "question5B" ? (
+      {location === "question5B" ? (
         <div>
           <h2>¿Cuantas horas diarias viajas en transporte publico?</h2>
           <input
@@ -505,7 +506,7 @@ export default function Calculator() {
       ) : (
         <div />
       )}
-      {location == "result" ? (
+      {location === "result" ? (
         <div>
           <h3>El Resultado es: {input.total}</h3>
           <button onClick={() => handleButton()}>Reiniciar</button>
@@ -513,6 +514,6 @@ export default function Calculator() {
       ) : (
         <div />
       )}
-    </div>
+    </Container>
   );
 }
