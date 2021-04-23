@@ -39,7 +39,6 @@ export default function Calculator() {
   const handleButton = () => {
     switch (location) {
       case "start":
-        console.log("mortadela");
         setInput({
           people: 1,
           pc: false,
@@ -202,7 +201,9 @@ export default function Calculator() {
         <div>
           <h1 className="my-4 text-center text-muted">¡Bienvenido a Kawsay!</h1>
           <div>
-            <h3 className="my-2 pb-5 text-center text-muted">La huella del Carbono</h3>
+            <h3 className="my-2 pb-5 text-center text-muted">
+              La huella del Carbono
+            </h3>
             <h4 className="my-2 pb-5 font-italic text-muted">
               ¿Sabías que con nuestro estilo de vida moderno, cada persona
               genera alrededor de cuatro toneladas de CO2 al año?
@@ -214,9 +215,13 @@ export default function Calculator() {
               ambiente con cada actividad que emite gases de efecto invernadero
               es conocida como huella de carbono.
             </h4>
-            <h4 className="my-2 pb-5 font-italic text-muted">¿Te gustaria conocer tu huella de Carbono?</h4>
+            <h4 className="my-2 pb-5 font-italic text-muted">
+              ¿Te gustaria conocer tu huella de Carbono?
+            </h4>
             <div>
-              <Button variant="info" size="lg" onClick={() => handleButton()}>Calcular</Button>
+              <Button variant="info" size="lg" onClick={() => handleButton()}>
+                Calcular
+              </Button>
             </div>
           </div>
         </div>
