@@ -1,20 +1,6 @@
 import { useState } from "react";
 
 export default function Calculator() {
-  const [page, setPage] = useState({
-    start: true,
-    question1: false,
-    question2: false,
-    question3: false,
-    question4: false,
-    question4A: false,
-    question4B: false,
-    question5: false,
-    question5A: false,
-    question5B: false,
-    result: false,
-  });
-
   const [input, setInput] = useState({
     //electrico
     people: 1,
@@ -33,7 +19,7 @@ export default function Calculator() {
     estufa: false,
     //auto
     useCar: false,
-    carDistance: 0,
+    carDistance: 1,
     carShare: 1,
     //transporte publico
     publicTransport: false,
@@ -43,10 +29,7 @@ export default function Calculator() {
     taxi: false,
     publicHours: 1,
     //totales
-    publicTotal: 0,
-    carTotal: 0,
-    electricTotal: 0,
-    gasTotal: 0,
+    publicTotal: 1,
     total: 1,
   });
 
@@ -71,7 +54,7 @@ export default function Calculator() {
           termotanque: false,
           estufa: false,
           useCar: false,
-          carDistance: 0,
+          carDistance: 1,
           carShare: 1,
           publicTransport: false,
           train: false,
@@ -79,189 +62,126 @@ export default function Calculator() {
           bus: false,
           taxi: false,
           publicHours: 1,
-          publicTotal: 0,
-          carTotal: 0,
-          electricTotal: 0,
-          gasTotal: 0,
+          publicTotal: 1,
+
           total: 1,
-        });
-        setPage({
-          ...page,
-          start: false,
-          question1: true,
         });
         setLocation("question1");
         break;
       case "question1":
-        setPage({ ...page, question1: false, question2: true });
         setLocation("question2");
         break;
       case "question2":
-        setPage({ ...page, question2: false, question3: true });
         setLocation("question3");
-        console.log(input.pc);
         break;
       case "question3":
-        setPage({ ...page, question3: false, question4: true });
         setLocation("question4");
         break;
       case "question4":
         if (input.useCar) {
-          setPage({
-            ...page,
-            question4: false,
-            question4A: true,
-          });
           setLocation("question4A");
         } else {
-          setPage({ ...page, question4: false, question5: true });
           setLocation("question5");
         }
         break;
       case "question4A":
-        setPage({ ...page, question4A: false, question4B: true });
         setLocation("question4B");
         break;
       case "question4B":
-        setPage({ ...page, question4B: false, question5: true });
         setLocation("question5");
         break;
       case "question5":
+        var edesur = 0;
+        var metrogas = 0;
         if (input.pc) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.0106,
-          });
+          edesur += 0.0106;
         }
         if (input.radio) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.029,
-          });
+          edesur += 0.029;
         }
         if (input.impresora) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.4355,
-          });
+          edesur += 0.4355;
         }
         if (input.microondas) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.3097,
-          });
+          edesur += 0.3097;
         }
         if (input.dispenser) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.121,
-          });
+          edesur += 0.121;
         }
         if (input.pava) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 1.1613,
-          });
+          edesur += 1.1613;
         }
         if (input.lavarropa) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.9481,
-          });
+          edesur += 0.9481;
         }
         if (input.heladera) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.0564,
-          });
+          edesur += 0.0564;
         }
         if (input.tv) {
-          setInput({
-            ...input,
-            electricTotal: input.electricTotal + 0.0263,
-          });
+          edesur += 0.0263;
         }
         if (input.cocina) {
           setInput({ ...input, gasTotal: input.gasTotal + 0.0228 });
+          metrogas += 0.0228;
         }
         if (input.termotanque) {
           setInput({ ...input, gasTotal: input.gasTotal + 0.0228 });
+          metrogas += 0.0228;
         }
         if (input.estufa) {
           setInput({ ...input, gasTotal: input.gasTotal + 0.5558 });
+          metrogas += 0.5558;
         }
-        /* let subTotal =
-          (input.electricTotal * 6 * 365 +
-            input.gasTotal * 4 * 365 +
-            (input.carTotal * input.carDistance) / input.carShare) /
-          input.people; */
-        console.log(
-          "lo de gas es" +
-            input.gasTotal +
-            "lo de electricidad es " +
-            input.electricTotal
-        );
+
+        var sub = (edesur * 6 * 365 + metrogas * 4 * 365) / input.people;
+
+        if (input.useCar) {
+          sub += (0.15 * input.carDistance) / 12 / input.carShare;
+        }
+
         setInput({
           ...input,
-          total:
-            (input.electricTotal * 6 * 365 +
-              input.gasTotal * 4 * 365 +
-              (input.carTotal * input.carDistance) / input.carShare) /
-            input.people,
+          total: sub,
         });
         if (input.publicTransport) {
-          setPage({
-            ...page,
-            question5: false,
-            question5A: true,
-          });
           setLocation("question5A");
         } else {
-          setPage({ ...page, question5: false, result: true });
           setLocation("result");
         }
         break;
       case "question5A":
-        setPage({ ...page, question5A: false, question5B: true });
         setLocation("question5B");
         break;
       case "question5B":
         var quantity = 0;
+        var totalPublic = 0;
         if (input.train) {
           quantity++;
-          let train = ((0.005 * 50 * input.publicHours) / 737) * 240;
-          setInput({
-            ...input,
-            publicTotal: input.publicTotal + train,
-          });
+          totalPublic += ((0.005 * 50 * input.publicHours) / 737) * 240;
         }
         if (input.subway) {
           quantity++;
-          let subway = ((0.036 * 50 * input.publicHours) / 255) * 240;
-          setInput({
-            ...input,
-            publicTotal: input.publicTotal + subway,
-          });
+          totalPublic += ((0.036 * 50 * input.publicHours) / 255) * 240;
         }
         if (input.bus) {
           quantity++;
-          let bus = ((0.05 * 50 * input.publicHours) / 25) * 240;
-          setInput({ ...input, publicTotal: input.publicTotal + bus });
+          totalPublic += ((0.05 * 50 * input.publicHours) / 25) * 240;
         }
         if (input.taxi) {
           quantity++;
-          let taxi = ((0.15 * 50 * input.publicHours) / 2) * 240;
-          setInput({ ...input, publicTotal: input.publicTotal + taxi });
+          totalPublic += ((0.15 * 50 * input.publicHours) / 2) * 240;
         }
+        if (quantity > 0) {
+          totalPublic = totalPublic / quantity;
+        }
+        totalPublic += input.total;
         setInput({
           ...input,
-          total: input.total + input.publicTotal / quantity,
+          total: totalPublic,
         });
-        setPage({ ...page, question5B: false, result: true });
         setLocation("result");
         break;
       default:
-        setPage({ ...page, result: false, start: true });
         setLocation("start");
         break;
     }
@@ -277,7 +197,7 @@ export default function Calculator() {
   return (
     <div>
       {/* start */}
-      {page.start ? (
+      {location == "start" ? (
         <div>
           <h3>¡Bienvenido a Kawsay!</h3>
           <div>
@@ -303,7 +223,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question1 */}
-      {page.question1 ? (
+      {location == "question1" ? (
         <div>
           <h2>¿Con cuanta gente vives?</h2>
           <input
@@ -319,7 +239,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question2 */}
-      {page.question2 ? (
+      {location == "question2" ? (
         <div>
           <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
           <h1>(puede marcar tantos como quiera)</h1>
@@ -414,7 +334,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 3 */}
-      {page.question3 ? (
+      {location == "question3" ? (
         <div>
           <h2>¿Cuales de estos utilizas con frecuencia?</h2>
           <h1>(puede marcar tantos como quiera)</h1>
@@ -459,7 +379,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 4 */}
-      {page.question4 ? (
+      {location == "question4" ? (
         <div>
           <h2>¿Tenes vehiculo propio?</h2>
           <input
@@ -476,7 +396,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 4A */}
-      {page.question4A ? (
+      {location == "question4A" ? (
         <div>
           <h2>¿Que distancia recorres aprox. al mes?</h2>
           <input
@@ -492,7 +412,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 4B */}
-      {page.question4B ? (
+      {location == "question4B" ? (
         <div>
           <h2>¿Cuantas personas comparten tu auto habitualmente?</h2>
           <input
@@ -508,7 +428,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 5 */}
-      {page.question5 ? (
+      {location == "question5" ? (
         <div>
           <h2>¿Usas con frecuencia transporte publico?</h2>
           <input
@@ -526,7 +446,8 @@ export default function Calculator() {
       ) : (
         <div />
       )}
-      {page.question5A ? (
+      {/* question 5A */}
+      {location == "question5A" ? (
         <div>
           <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
           <h1>(puede marcar tantos como quiera)</h1>
@@ -569,7 +490,7 @@ export default function Calculator() {
         <div />
       )}
       {/* question 5B */}
-      {page.question5B ? (
+      {location == "question5B" ? (
         <div>
           <h2>¿Cuantas horas diarias viajas en transporte publico?</h2>
           <input
@@ -584,7 +505,7 @@ export default function Calculator() {
       ) : (
         <div />
       )}
-      {page.result ? (
+      {location == "result" ? (
         <div>
           <h3>El Resultado es: {input.total}</h3>
           <button onClick={() => handleButton()}>Reiniciar</button>
