@@ -195,6 +195,12 @@ export default function Calculator() {
             input.gasTotal * 4 * 365 +
             (input.carTotal * input.carDistance) / input.carShare) /
           input.people; */
+        console.log(
+          "lo de gas es" +
+            input.gasTotal +
+            "lo de electricidad es " +
+            input.electricTotal
+        );
         setInput({
           ...input,
           total:
