@@ -11,19 +11,19 @@ const NavBar = () => {
           Kawsai
         </NavbarBootstrap.Brand>
       </NavbarBootstrap>
-      <div className = "ponele">
+      <div className = "navList">
         <ul>
           <li>
-            <Link to="/"><h5 className={style.color}>Calculadora</h5></Link>
+            <Link to="/"><h5 className="colorNav">Calculadora</h5></Link>
           </li>
           <li>
-            <Link to="/consejos"><h5 className={style.color}>Mejora tu impacto</h5></Link>
+            <Link to="/consejos"><h5 className="colorNav">Mejora tu impacto</h5></Link>
           </li>
           <li>
-            <Link to="/planta"><h5 className={style.color}>Planta un arbol</h5></Link>
+            <Link to="/planta"><h5 className="colorNav">Planta un arbol</h5></Link>
           </li>
           <li>
-            <Link to="/newsletter"><h5 className={style.color}>Suscribete</h5></Link>
+            <Link to="/newsletter"><h5 className="colorNav">Suscríbete</h5></Link>
           </li>
         </ul>
       </div>

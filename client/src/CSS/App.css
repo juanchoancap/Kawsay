@@ -41,17 +41,37 @@
 
 /* NavBar */
 
-.ponele ul{
+.navList ul{
   list-style: none;
   display: flex;
   justify-content: center;
 }
 
-.ponele li{
+.navList li{
   padding-left: 2rem;
 }
 
-.color{
+.colorNav{
   color:#7B9E67; 
   font-size: medium;
+}
+
+.cover{
+  background-size: cover;
+  padding: 3%;
+}
+
+.med h1{
+  color:#23423E; 
+  font-size:xx-large ;
+}
+.med h2{
+  color:#7B9E67; 
+  font-size:x-large ;
+}
+
+.med2{
+  font-size:x-large;
+  padding-right: 8rem;
+  padding-left: 8rem;
 }
