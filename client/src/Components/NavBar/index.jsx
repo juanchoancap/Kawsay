@@ -1,7 +1,8 @@
 import { Navbar as NavbarBootstrap } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const NavBar = () => {
+  const { push } = useHistory();
   return (
     <div>
       <NavbarBootstrap bg="info" variant="success">

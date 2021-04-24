@@ -30,7 +30,7 @@ export default function Calculator() {
     taxi: false,
     publicHours: 1,
     //totales
-    publicTotal: 1,
+
     total: 1,
   });
 
@@ -62,7 +62,6 @@ export default function Calculator() {
           bus: false,
           taxi: false,
           publicHours: 1,
-          publicTotal: 1,
 
           total: 1,
         });
@@ -121,15 +120,12 @@ export default function Calculator() {
           edesur += 0.0263;
         }
         if (input.cocina) {
-          setInput({ ...input, gasTotal: input.gasTotal + 0.0228 });
           metrogas += 0.0228;
         }
         if (input.termotanque) {
-          setInput({ ...input, gasTotal: input.gasTotal + 0.0228 });
           metrogas += 0.0228;
         }
         if (input.estufa) {
-          setInput({ ...input, gasTotal: input.gasTotal + 0.5558 });
           metrogas += 0.5558;
         }
 
@@ -197,6 +193,7 @@ export default function Calculator() {
   return (
     <Container>
       {/* start */}
+
       {location === "start" ? (
         <div>
           <h1 className="my-4 text-center text-muted">¡Bienvenido a Kawsay!</h1>
@@ -240,6 +237,7 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -335,6 +333,7 @@ export default function Calculator() {
             Lavarropa
           </div>
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -380,6 +379,7 @@ export default function Calculator() {
             Estufa
           </div>
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -397,6 +397,7 @@ export default function Calculator() {
             onClick={() => setInput({ ...input, useCar: !input.useCar })}
           />
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -413,6 +414,7 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -429,6 +431,7 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -448,6 +451,7 @@ export default function Calculator() {
             }
           />
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -491,6 +495,7 @@ export default function Calculator() {
             Tren
           </div>
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
@@ -507,6 +512,7 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <button onClick={() => handleButton()}>Continuar</button>
+          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
         </div>
       ) : (
         <div />
