@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* Nuevos estilos */
+
+/* NavBar */
+
+.ponele ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.ponele li{
+  padding-left: 2rem;
+}
+
+.color{
+  color:#7B9E67; 
+  font-size: medium;
+}
