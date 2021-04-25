@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Container, Jumbotron } from "react-bootstrap";
+import { Button, Jumbotron } from "react-bootstrap";
 
 export default function Calculator() {
   const [input, setInput] = useState({
@@ -192,7 +192,7 @@ export default function Calculator() {
 
   return (
     <>
-    <Jumbotron className = "cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
+    <Jumbotron className ="cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
       {/* start */}
 
       {location === "start" ? (
@@ -201,7 +201,7 @@ export default function Calculator() {
             <h1 className="my-2 text-center">¡Bienvenido a Kawsay!</h1>
             <h2 className="my-2 pb-4 text-center">La huella del Carbono</h2>
           </div>
-          <div className="med2 text-center">
+          <div className="med2 text-left">
             <p className="my-2 pb-3 font-italic text-muted">
               ¿Sabías que con nuestro estilo de vida moderno, cada persona
               genera alrededor de cuatro toneladas de CO2 al año?
@@ -229,7 +229,7 @@ export default function Calculator() {
       {/* question1 */}
       {location === "question1" ? (
         <div>
-          <h2>¿Con cuanta gente vives?</h2>
+          <h2 className="font-italic text-muted">¿Con cuanta gente vives?</h2>
           <input
             type="number"
             name="people"
@@ -237,17 +237,19 @@ export default function Calculator() {
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
           />
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <br />
+          <Button className="my-2" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button className="mt-1" variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question2 */}
       {location === "question2" ? (
-        <div>
+        <div className="font-italic text-muted">
           <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
-          <h1>(puede marcar tantos como quiera)</h1>
+          <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
           <div>
             <input
               type="checkbox"
@@ -256,6 +258,7 @@ export default function Calculator() {
               checked={input.pc}
               defaultChecked={false}
               onClick={() => setInput({ ...input, pc: !input.pc })}
+              className="mx-2"
             />
             PC
           </div>
@@ -267,6 +270,7 @@ export default function Calculator() {
               checked={input.radio}
               defaultChecked={false}
               onClick={() => setInput({ ...input, radio: !input.radio })}
+              className="mx-2"
             />
             Radio
           </div>
@@ -278,8 +282,8 @@ export default function Calculator() {
               checked={input.impresora}
               defaultChecked={false}
               onClick={() =>
-                setInput({ ...input, impresora: !input.impresora })
-              }
+                setInput({ ...input, impresora: !input.impresora })}
+                className="mx-2"
             />
             Impresora
           </div>
@@ -291,8 +295,8 @@ export default function Calculator() {
               checked={input.microondas}
               defaultChecked={false}
               onClick={() =>
-                setInput({ ...input, microondas: !input.microondas })
-              }
+                setInput({ ...input, microondas: !input.microondas })}
+                className="mx-2"
             />
             Microondas
           </div>
@@ -304,8 +308,8 @@ export default function Calculator() {
               checked={input.dispenser}
               defaultChecked={false}
               onClick={() =>
-                setInput({ ...input, dispenser: !input.dispenser })
-              }
+                setInput({ ...input, dispenser: !input.dispenser })}
+                className="mx-2"
             />
             Dispenser
           </div>
@@ -317,6 +321,7 @@ export default function Calculator() {
               checked={input.pava}
               defaultChecked={false}
               onClick={() => setInput({ ...input, pava: !input.pava })}
+              className="mx-2"
             />
             Pava electrica
           </div>
@@ -328,22 +333,23 @@ export default function Calculator() {
               checked={input.lavarropa}
               defaultChecked={false}
               onClick={() =>
-                setInput({ ...input, lavarropa: !input.lavarropa })
-              }
+                setInput({ ...input, lavarropa: !input.lavarropa })}
+                className="mx-2"
             />
             Lavarropa
           </div>
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 3 */}
       {location === "question3" ? (
-        <div>
+        <div className="font-italic text-muted">
           <h2>¿Cuales de estos utilizas con frecuencia?</h2>
-          <h1>(puede marcar tantos como quiera)</h1>
+          <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
           <div>
             <input
               type="checkbox"
@@ -352,6 +358,7 @@ export default function Calculator() {
               checked={input.cocina}
               defaultChecked={false}
               onClick={() => setInput({ ...input, cocina: !input.cocina })}
+              className="mx-2"
             />
             Cocina
           </div>
@@ -362,9 +369,8 @@ export default function Calculator() {
               value={input.termotanque}
               checked={input.termotanque}
               defaultChecked={false}
-              onClick={() =>
-                setInput({ ...input, termotanque: !input.termotanque })
-              }
+              onClick={() => setInput({ ...input, termotanque: !input.termotanque })}
+              className="mx-2"
             />
             Termotanque
           </div>
@@ -376,19 +382,21 @@ export default function Calculator() {
               checked={input.estufa}
               defaultChecked={false}
               onClick={() => setInput({ ...input, estufa: !input.estufa })}
+              className="mx-2"
             />
             Estufa
           </div>
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 4 */}
       {location === "question4" ? (
-        <div>
-          <h2>¿Tenes vehiculo propio?</h2>
+        <div className="font-italic text-muted">
+          <h2 className="mb-4">¿Tenes vehiculo propio?</h2>
           <input
             type="checkbox"
             name="useCar"
@@ -396,17 +404,20 @@ export default function Calculator() {
             checked={input.useCar}
             defaultChecked={false}
             onClick={() => setInput({ ...input, useCar: !input.useCar })}
+            className="mx-2"
           />
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <br />
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 4A */}
       {location === "question4A" ? (
-        <div>
-          <h2>¿Que distancia recorres aprox. al mes?</h2>
+        <div className="font-italic text-muted">
+          <h2 className="mb-4">¿Que distancia recorres aprox. al mes?</h2>
           <input
             type="number"
             name="carDistance"
@@ -414,16 +425,18 @@ export default function Calculator() {
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
           />
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <br />
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 4B */}
       {location === "question4B" ? (
-        <div>
-          <h2>¿Cuantas personas comparten tu auto habitualmente?</h2>
+        <div className="font-italic text-muted">
+          <h2 className="mb-4">¿Cuantas personas comparten tu auto habitualmente?</h2>
           <input
             type="number"
             name="carShare"
@@ -431,16 +444,18 @@ export default function Calculator() {
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
           />
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <br />
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 5 */}
       {location === "question5" ? (
-        <div>
-          <h2>¿Usas con frecuencia transporte publico?</h2>
+        <div className="font-italic text-muted">
+          <h2 className="mb-4">¿Usas con frecuencia transporte publico?</h2>
           <input
             type="checkbox"
             name="publicTransport"
@@ -451,17 +466,19 @@ export default function Calculator() {
               setInput({ ...input, publicTransport: !input.publicTransport })
             }
           />
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <br />
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 5A */}
       {location === "question5A" ? (
-        <div>
+        <div className="font-italic text-muted">
           <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
-          <h1>(puede marcar tantos como quiera)</h1>
+          <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
           <div>
             <input
               type="checkbox"
@@ -470,6 +487,7 @@ export default function Calculator() {
               checked={input.bus}
               defaultChecked={false}
               onClick={() => setInput({ ...input, bus: !input.bus })}
+              className="mx-2"
             />
             Bus
           </div>
@@ -481,6 +499,7 @@ export default function Calculator() {
               checked={input.subway}
               defaultChecked={false}
               onClick={() => setInput({ ...input, subway: !input.subway })}
+              className="mx-2"
             />
             Subte
           </div>
@@ -492,19 +511,21 @@ export default function Calculator() {
               checked={input.train}
               defaultChecked={false}
               onClick={() => setInput({ ...input, train: !input.train })}
+              className="mx-2"
             />
             Tren
           </div>
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {/* question 5B */}
       {location === "question5B" ? (
-        <div>
-          <h2>¿Cuantas horas diarias viajas en transporte publico?</h2>
+        <div className="font-italic text-muted">
+          <h2 className="mb-4">¿Cuantas horas diarias viajas en transporte publico?</h2>
           <input
             type="number"
             name="publicHours"
@@ -512,16 +533,18 @@ export default function Calculator() {
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
           />
-          <button onClick={() => handleButton()}>Continuar</button>
-          <button onClick={() => setLocation("start")}>Volver al Inicio</button>
+          <br />
+          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <br />
+          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
       )}
       {location === "result" ? (
-        <div>
-          <h3>El Resultado es: {input.total}</h3>
-          <button onClick={() => handleButton()}>Reiniciar</button>
+        <div className="font-italic text-muted">
+          <h3 className="mb-4">El Resultado es: {input.total}</h3>
+          <Button className="my-3" variant="success" onClick={() => handleButton()}>Reiniciar</Button>
         </div>
       ) : (
         <div />
