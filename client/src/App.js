@@ -6,6 +6,7 @@ import Calculator from "./calculator/Calculator.jsx";
 import EcoAdvice from "./ecoAdvice.jsx";
 import Donate from "./Donate.jsx";
 import Newsletter from "./Newsletter.jsx";
+import FooterComponent from "./Components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/planta" render={() => <Donate />} />
           <Route path="/newsletter" render={() => <Newsletter />} />
         </Switch>
+        <FooterComponent />
       </Router>
     </>
   );
