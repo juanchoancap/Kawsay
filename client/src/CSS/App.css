@@ -62,6 +62,7 @@
 .cover{
   background-size: cover;
   padding: 3%;
+  min-height: 600px;
 }
 
 .med h1{
@@ -78,3 +79,7 @@
   padding-right: 8rem;
   padding-left: 8rem;
 }
+
+.footerColor{
+  background-color: #23423E;
+};
