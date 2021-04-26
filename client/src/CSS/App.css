@@ -78,3 +78,12 @@
   padding-right: 8rem;
   padding-left: 8rem;
 }
+
+.med3{
+  background: #7A7A7A;
+  background: -webkit-linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
+  background: -moz-linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
+  background: linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

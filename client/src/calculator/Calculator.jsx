@@ -192,7 +192,7 @@ export default function Calculator() {
 
   return (
     <>
-    <Jumbotron className ="cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
+    <Jumbotron className ="cover" style={{backgroundImage: `url("https://i.ibb.co/hBLZ6VT/newbg2.png")`}}>
       {/* start */}
 
       {location === "start" ? (
@@ -206,14 +206,14 @@ export default function Calculator() {
               ¿Sabías que con nuestro estilo de vida moderno, cada persona
               genera alrededor de cuatro toneladas de CO2 al año?
             </p>
-            <p className="my-2 pb-3 font-italic text-muted">
+            <p className=" med3 my-2 pb-3 font-italic text-muted">
               Una de las principales causas del calentamiento global es la
               emisión de gases de efecto invernadero, entre ellos y
               principalmente, el CO2. La marca que se deja sobre el medio
               ambiente con cada actividad que emite gases de efecto invernadero
               es conocida como huella de carbono.
             </p>
-            <p className="my-2 pb-5 font-italic text-muted">
+            <p className="med3 my-2 pb-5 font-italic text-muted">
               ¿Te gustaria conocer tu huella de Carbono?
             </p>
             <div>
