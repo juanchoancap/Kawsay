@@ -76,15 +76,25 @@
 
 .med2{
   font-size:x-large;
-  padding-right: 8rem;
-  padding-left: 8rem;
+  padding-right: 20rem;
+  padding-left: 2rem;
 }
 
-.med3{
+.med4{
+  font-size: large;
+  padding-right: 22rem;
+  padding-left: 2rem;
+}
+
+/* .med3{
   background: #7A7A7A;
   background: -webkit-linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
   background: -moz-linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
   background: linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+} */
+
+.footerColor{
+  background-color: #23423E;
 }
