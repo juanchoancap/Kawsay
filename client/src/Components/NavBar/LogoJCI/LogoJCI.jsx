@@ -1,4 +1,4 @@
-import LogoJCI from "../LogoJCI/LogoJCI.jpg"
+import LogoJCI from "./LogoJCI.jpg"
 
 const LogoJCIComponent = () => (
     <>

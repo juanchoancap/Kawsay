@@ -1,5 +1,6 @@
 import { Nav, Navbar as NavbarBootstrap } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import LogoJCIComponent from "./LogoJCI/LogoJCI";
 import LogoKawsayComponent from "./LogoKawsay/LogoKawsay";
 
 const NavBar = () => {
@@ -18,6 +19,7 @@ const NavBar = () => {
                 <Link to="/planta" className="colorNav mx-2 text-decoration-none"><h5>Planta un arbol</h5></Link>        
                 <Link to="/newsletter" className="colorNav mx-4 text-decoration-none"><h5>Suscríbete</h5></Link>        
             </Nav>
+            <LogoJCIComponent />
         </NavbarBootstrap.Collapse>
       </NavbarBootstrap>
     </>

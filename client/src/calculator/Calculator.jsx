@@ -182,13 +182,19 @@ export default function Calculator() {
         break;
     }
   };
-
   const handleInput = (e) => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
-  };
+    if (e.target.value < 1) {
+      setInput({
+        ...input,
+        [e.target.name]: 1,
+      });
+    } else {
+      setInput({
+        ...input,
+        [e.target.name]: e.target.value,
+      });
+    }
+  }; 
 
   return (
     <>
@@ -233,6 +239,7 @@ export default function Calculator() {
           <input
             type="number"
             name="people"
+            min="1"
             value={input.people}
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
@@ -421,6 +428,7 @@ export default function Calculator() {
           <input
             type="number"
             name="carDistance"
+            min="1"
             value={input.carDistance}
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
@@ -440,6 +448,7 @@ export default function Calculator() {
           <input
             type="number"
             name="carShare"
+            min="1"
             value={input.carShare}
             onChange={handleInput}
             placeholder="Ingrese la cantidad"
@@ -529,6 +538,7 @@ export default function Calculator() {
           <input
             type="number"
             name="publicHours"
+            min="1"
             value={input.publicHours}
             onChange={handleInput}
             placeholder="Ingrese la cantidad"

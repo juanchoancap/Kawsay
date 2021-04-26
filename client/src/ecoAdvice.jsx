@@ -19,7 +19,7 @@ export default function EcoAdvice() {
       <div>
         {location === "energia" ? (
           <div className="my-1 font-italic">
-            <Container>
+            <Container className="ml-3 w-50">
               <p className="my-1 font-italic">&#10004; Priorizá el uso de iluminación natural.</p>
               <p className="my-1">&#10004; Apagá la luz cuando salgas de cada ambiente.</p>
               <p className="my-1">
@@ -30,14 +30,18 @@ export default function EcoAdvice() {
               &#10004; Desconectá aparatos electrónicos y cargadores cuando no los
                 estés usando.
               </p>
-              <p className="my-1">&#10004; Evitá dejar artefactos eléctricos en suspensión.</p>
-              <p>
+              <p className="my-1">
               &#10004; Poné el aire en 24 grados en el verano y 20 en el invierno.
               </p>
-              <p className="my-1">&#10004; Elegí electrodomésticos de eficiencia energética A.</p>
               <p className="my-1">
               &#10004; Cuando uses el lavarropas o lavavajillas, usalos con carga
                 completa y así aprovechas el máximo de su capacidad.
+              </p>
+              <p className="my-1">&#10004; Evitá dejar artefactos eléctricos en suspensión.</p>
+              <p className="my-1">&#10004; Elegí electrodomésticos de eficiencia energética A.</p>
+              <p className="my-1">
+              &#10004; Repará las pérdidas en canillas o sanitarios, para evitar el uso
+                intensivo de bombas.
               </p>
               <p className="my-1">
               &#10004; Evitá dejar abierta la puerta de la heladera por un tiempo
@@ -45,11 +49,7 @@ export default function EcoAdvice() {
               </p>
               <p className="my-1">
               &#10004; Evitá usar el ascensor, siempre que puedas usá las escaleras.
-              </p>
-              <p className="my-1">
-              &#10004; Repará las pérdidas en canillas o sanitarios, para evitar el uso
-                intensivo de bombas.
-              </p>
+              </p>              
               <p className="my-1">&#10004; Date baños cortos, preferiblemente en ducha.</p>
             </Container>
           </div>
@@ -58,7 +58,7 @@ export default function EcoAdvice() {
         )}
         {location === "movilidad" ? (
           <div className="my-1 font-italic">
-            <Container>
+            <Container className="ml-3 w-50">
               <p className="my-1">
               &#10004; Siempre que puedas y la distancia lo permita, usá la bici.
               </p>
@@ -92,7 +92,7 @@ export default function EcoAdvice() {
         )}
         {location === "residuos" ? (
           <div className="my-1 font-italic">
-            <Container>
+            <Container className="ml-3 w-50">
               <p className="my-1">
               &#10004; Reducí: evitá la generación innecesaria de residuos. Para ello
                 podés evitar comprar productos con mucho envoltorio, disminuir
@@ -124,7 +124,7 @@ export default function EcoAdvice() {
         )}
         {location === "alimentacion" ? (
           <div className="my-1 font-italic">
-            <Container>
+            <Container className="ml-3 w-50">
               <p className="my-1">
               &#10004; Se calcula que un 20% de los gases de efecto invernadero se
                 deben a la elaboración y comercialización de alimentos. Hay que
@@ -147,7 +147,7 @@ export default function EcoAdvice() {
         )}
         {location === "arboles" ? (
           <div className="my-1 font-italic">
-            <Container>
+            <Container className="ml-3 w-50">
             &#10004; Los árboles retienen CO2, un árbol elimina entre 350 y 3.500 kg. de
             CO2 aproximadamente en toda su vida, por ello impulsar la plantación
             de nuevos árboles, en especial especies autóctonas, contribuye a
