@@ -2,6 +2,7 @@ import React from "react";
 
 const Newsletter = () => {
   return (
+    <>
     <div>
       <div>
         <form
@@ -40,6 +41,7 @@ const Newsletter = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

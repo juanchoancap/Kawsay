@@ -198,7 +198,7 @@ export default function Calculator() {
 
   return (
     <>
-    <Jumbotron className ="cover" style={{backgroundImage: `url("https://i.ibb.co/hBLZ6VT/newbg2.png")`}}>
+    <Jumbotron className ="cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
       {/* start */}
 
       {location === "start" ? (
@@ -207,22 +207,22 @@ export default function Calculator() {
             <h1 className="my-2 text-center">¡Bienvenido a Kawsay!</h1>
             <h2 className="my-2 pb-4 text-center">La huella del Carbono</h2>
           </div>
-          <div className="med2 text-left">
-            <p className="my-2 pb-3 font-italic text-muted">
+          <div className="text-left w-75">
+            <p className="med2 my-2 pb-3 font-italic font-weight-bold text-muted">
               ¿Sabías que con nuestro estilo de vida moderno, cada persona
               genera alrededor de cuatro toneladas de CO2 al año?
             </p>
-            <p className=" med3 my-2 pb-3 font-italic text-muted">
+            <p className="med4 my-1 pb-3 font-italic text-muted">
               Una de las principales causas del calentamiento global es la
               emisión de gases de efecto invernadero, entre ellos y
               principalmente, el CO2. La marca que se deja sobre el medio
               ambiente con cada actividad que emite gases de efecto invernadero
               es conocida como huella de carbono.
             </p>
-            <p className="med3 my-2 pb-5 font-italic text-muted">
+            <p className="med2 mb-n3 mt-3 pb-5 font-italic font-weight-bold text-muted">
               ¿Te gustaria conocer tu huella de Carbono?
             </p>
-            <div>
+            <div className="ml-5">
               <Button variant="success" size="lg" onClick={() => handleButton()}>
                 Calcular
               </Button>
