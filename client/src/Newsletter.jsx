@@ -1,11 +1,12 @@
 import React from "react";
+import { Form } from "react-bootstrap";
 
 const Newsletter = () => {
   return (
     <>
     <div>
       <div>
-        <form
+        <Form
           method="post"
           action="https://ymlp.com/subscribe.php?id=gyuwbbegmgj"
         >
@@ -38,7 +39,7 @@ const Newsletter = () => {
               </tr>
             </tbody>
           </table>
-        </form>
+        </Form>
       </div>
     </div>
     </>
