@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button, Jumbotron } from "react-bootstrap";
 
 export default function Calculator() {
@@ -200,20 +200,17 @@ export default function Calculator() {
     <>
     <Jumbotron className ="cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
       {/* start */}
-
       {location === "start" ? (
         <div>
           <div>
-            <h1 className="my-2 text-left font-weight-bold">
-            <span className = "titleH">¡Bienvenido a </span>Kawsay!
-          </h1>
+            <h1 className="my-2 parH text-left font-weight-bold pl-2"><span className = "titleH">¡Bienvenido a </span>Kawsay!</h1>
           </div>
-          <div className="text-left w-75 parHB">
-            <p className="parH mt-5 ">
+          <div className="shadow text-left w-50 parHB">
+            <p className="parH mt-5 pl-2 pt-2">
               <h5>¿Sabías que con nuestro estilo de vida moderno, cada persona
               genera alrededor de cuatro toneladas de CO2 al año?</h5>
             </p>
-            <p className="parH pb-3">
+            <p className="parH pb-3 pl-2">
               Una de las principales causas del calentamiento global es la
               emisión de gases de efecto invernadero, entre ellos y
               principalmente, el CO2. La marca que se deja sobre el medio
@@ -222,10 +219,10 @@ export default function Calculator() {
             </p>
           </div>
           <div>
-            <p className="parH mb-n3 mt-3 pt-1 pb-5">
+            <p className="parH mb-n3 mt-3 py-3 pl-2">
               <h5 className="font-weight-bold">¿Te gustaria conocer tu huella de Carbono?</h5>
             </p>
-            <div>
+            <div className="ml-5 mt-2">
               <Button variant="flat" size="lg" onClick={() => handleButton()}>
                 CALCULAR
               </Button>
