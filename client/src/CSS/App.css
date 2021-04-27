@@ -39,6 +39,14 @@
 
 /* Nuevos estilos */
 
+/* Background */
+
+.cover{
+  background-size: cover;
+  padding: 3%;
+  min-height: 600px;
+}
+
 /* NavBar */
 
 .navList ul{
@@ -59,41 +67,28 @@
   color:#23423E;
 }
 
-.cover{
-  background-size: cover;
-  padding: 3%;
-  min-height: 600px;
-}
+/* Home */
 
-.med h1{
-  color:#23423E; 
-  font-size:xx-large ;
-}
-.med h2{
+.titleH{
   color:#7B9E67; 
-  font-size:x-large ;
 }
 
-.med2{
-  font-size:x-large;
-  padding-right: 20rem;
-  padding-left: 2rem;
+.parH{
+  color:#23423E; 
+  padding-right: 19rem;
 }
 
-.med4{
-  font-size: large;
-  padding-right: 22rem;
-  padding-left: 2rem;
+.btn-flat {
+  background-color: #7B9E67;
+  color: white;
+  font-weight: bold;
 }
 
-/* .med3{
-  background: #7A7A7A;
-  background: -webkit-linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
-  background: -moz-linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
-  background: linear-gradient(to right, #7A7A7A 55%, #F0EDEB 57%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
+.parHB{
+  background-color:RGBA(35,66,62,0.1);
+}
+
+/* Footer */
 
 .footerColor{
   background-color: #23423E;

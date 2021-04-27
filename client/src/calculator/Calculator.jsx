@@ -203,30 +203,33 @@ export default function Calculator() {
 
       {location === "start" ? (
         <div>
-          <div className ="med">
-            <h1 className="my-2 text-center">¡Bienvenido a Kawsay!</h1>
-            <h2 className="my-2 pb-4 text-center">La huella del Carbono</h2>
+          <div>
+            <h1 className="my-2 text-left font-weight-bold">
+            <span className = "titleH">¡Bienvenido a </span>Kawsay!
+          </h1>
           </div>
-          <div className="text-left w-75">
-            <p className="med2 my-2 pb-3 font-italic font-weight-bold text-muted">
-              ¿Sabías que con nuestro estilo de vida moderno, cada persona
-              genera alrededor de cuatro toneladas de CO2 al año?
+          <div className="text-left w-75 parHB">
+            <p className="parH mt-5 ">
+              <h5>¿Sabías que con nuestro estilo de vida moderno, cada persona
+              genera alrededor de cuatro toneladas de CO2 al año?</h5>
             </p>
-            <p className="med4 my-1 pb-3 font-italic text-muted">
+            <p className="parH pb-3">
               Una de las principales causas del calentamiento global es la
               emisión de gases de efecto invernadero, entre ellos y
               principalmente, el CO2. La marca que se deja sobre el medio
               ambiente con cada actividad que emite gases de efecto invernadero
               es conocida como huella de carbono.
             </p>
-            <p className="med2 mb-n3 mt-3 pb-5 font-italic font-weight-bold text-muted">
-              ¿Te gustaria conocer tu huella de Carbono?
+          </div>
+          <div>
+            <p className="parH mb-n3 mt-3 pt-1 pb-5">
+              <h5 className="font-weight-bold">¿Te gustaria conocer tu huella de Carbono?</h5>
             </p>
-            <div className="ml-5">
-              <Button variant="success" size="lg" onClick={() => handleButton()}>
-                Calcular
+            <div>
+              <Button variant="flat" size="lg" onClick={() => handleButton()}>
+                CALCULAR
               </Button>
-            </div>
+          </div>
           </div>
         </div>
       ) : (
@@ -245,9 +248,9 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <br />
-          <Button className="my-2" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-2" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button className="mt-1" variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button className="mt-1" variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -345,9 +348,9 @@ export default function Calculator() {
             />
             Lavarropa
           </div>
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -393,9 +396,9 @@ export default function Calculator() {
             />
             Estufa
           </div>
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -414,9 +417,9 @@ export default function Calculator() {
             className="mx-2"
           />
           <br />
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -434,9 +437,9 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <br />
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -454,9 +457,9 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <br />
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -476,9 +479,9 @@ export default function Calculator() {
             }
           />
           <br />
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -524,9 +527,9 @@ export default function Calculator() {
             />
             Tren
           </div>
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -544,9 +547,9 @@ export default function Calculator() {
             placeholder="Ingrese la cantidad"
           />
           <br />
-          <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
+          <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
-          <Button variant="success" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
+          <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
         </div>
       ) : (
         <div />
@@ -554,7 +557,7 @@ export default function Calculator() {
       {location === "result" ? (
         <div className="font-italic text-muted">
           <h3 className="mb-4">El Resultado es: {input.total}</h3>
-          <Button className="my-3" variant="success" onClick={() => handleButton()}>Reiniciar</Button>
+          <Button className="my-3" variant="flat" onClick={() => handleButton()}>Reiniciar</Button>
         </div>
       ) : (
         <div />
