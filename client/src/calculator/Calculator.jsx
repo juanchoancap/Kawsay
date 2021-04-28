@@ -413,6 +413,7 @@ export default function Calculator() {
             onClick={() => setInput({ ...input, useCar: !input.useCar })}
             className="mx-2"
           />
+          <h4>(Marca SOLO si tienes vehiculo propio)</h4>
           <br />
           <Button className="my-3" variant="success" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
