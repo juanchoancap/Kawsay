@@ -1,44 +1,25 @@
 import React from "react";
+import { Button, Form } from "react-bootstrap";
 
 const Newsletter = () => {
   return (
     <>
-    <div>
-      <div>
-        <form
+    <div className ="cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
+      <div className="ml-5">
+        <Form
           method="post"
           action="https://ymlp.com/subscribe.php?id=gyuwbbegmgj"
         >
-          <table border={0} align="center" cellSpacing={0} cellPadding={5}>
-            <tbody>
-              <tr>
-                <td colSpan={2}>
-                  <font size={2} face="verdana,geneva">
-                    ¡Complete su dirección de email
-                    <br />
-                    para recibir nuestra newsletter!
-                  </font>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top">
-                  <font size={2} face="verdana,geneva">
-                    Dirección de Email:
-                  </font>
-                </td>
-                <td valign="top">
-                  <input type="text" name="YMP0" size={20} />
-                </td>
-              </tr>
-              <tr>
-                <td colSpan={2}>
-                  <input type="submit" defaultValue="Enviar" />
-                  &nbsp;
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
+          <h2 className="mt-2 parH">¡Complete su dirección de email
+           <br />para recibir nuestra newsletter!
+          </h2>
+          <div className="ml-4">
+            <h5 className="mt-5 parH">Dirección de Email
+              <input className="ml-3 rounded" type="email" name="YMP0" placeholder="Ingrese su email aqui" size={20} />
+            </h5>            
+            <Button className="ml-5 mt-1" variant="flat" type="submit" value="Enviar">Enviar</Button>
+          </div>
+        </Form>
       </div>
     </div>
     </>

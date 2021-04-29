@@ -13,6 +13,7 @@ const NavBar = () => {
         </NavbarBootstrap.Brand>
         <NavbarBootstrap.Toggle aria-controls="responsive-navbar-nav" />
         <NavbarBootstrap.Collapse>
+
           <Nav className="mx-auto">
             <Link to="/" className="colorNav mx-2 text-decoration-none">
               <h5>Calculadora</h5>
@@ -34,6 +35,7 @@ const NavBar = () => {
             </Link>
           </Nav>
           <LogoJCIComponent />
+
         </NavbarBootstrap.Collapse>
       </NavbarBootstrap>
     </>
