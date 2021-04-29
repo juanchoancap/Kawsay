@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container, ListGroup } from "react-bootstrap";
 
 export default function FAQ() {
   const [location, setLocation] = useState("");
@@ -6,7 +7,7 @@ export default function FAQ() {
   return (
     <div>
       <div>
-        <h2>Preguntas Frecuentes</h2>
+        <h2 className="mb-5 text-center">PREGUNTAS FRECUENTES</h2>
         <ListGroup horizontal className="mb-4 shadow text-center">
           <ListGroup.Item
             action
@@ -59,8 +60,17 @@ export default function FAQ() {
           <div className="my-1 font-italic">
             <Container className="ml-3 w-50">
               <p className="my-1">
-                &#10004; Mira si voy a empatizar con todos me tengo que pegar un
-                tiro. El sufrimiento y la muerte esta en todos lados.
+                &#10004; La huella de carbono es uno de estos nuevos términos
+                que cada vez están más presentes en nuestra actividad. Se trata
+                de un indicador ambiental clave, que refleja los gases emitidos
+                por un individuo o empresa. Estos gases que se acumulan en la
+                atmósfera son lo que producen el efecto invernadero. Es el
+                impacto que deja la actividad humana sobre el medio ambiente. Es
+                decir, la marca ambiental que genera una persona, producto u
+                organización sobre el planeta debido a sus acciones diarias,
+                totalizadas según parámetros de emisiones de dióxido de carbono
+                (CO2) y otros gases de efecto invernadero (GEI) liberadas a la
+                atmósfera.
               </p>
             </Container>
           </div>

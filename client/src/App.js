@@ -7,6 +7,7 @@ import EcoAdvice from "./ecoAdvice.jsx";
 import Donate from "./Donate.jsx";
 import Newsletter from "./Newsletter.jsx";
 import FooterComponent from "./Components/Footer";
+import FAQ from "./FAQ.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" render={() => <Calculator />} />
           <Route path="/consejos" render={() => <EcoAdvice />} />
           <Route path="/planta" render={() => <Donate />} />
+          <Route path="/faq" render={() => <FAQ />} />
           <Route path="/newsletter" render={() => <Newsletter />} />
         </Switch>
         <FooterComponent />
