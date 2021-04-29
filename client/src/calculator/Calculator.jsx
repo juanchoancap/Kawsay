@@ -194,10 +194,11 @@ export default function Calculator() {
         [e.target.name]: e.target.value,
       });
     }
-  }; 
+  };
 
   return (
     <>
+
     <Jumbotron className ="cover" style={{backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")`}}>
       {/* start */}
       {location === "start" ? (
@@ -257,94 +258,217 @@ export default function Calculator() {
         <div className="font-italic text-muted">
           <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
           <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
+
           <div>
+            <h2 className="font-italic text-muted">¿Con cuanta gente vives?</h2>
             <input
-              type="checkbox"
-              name="pc"
-              value={input.pc}
-              checked={input.pc}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, pc: !input.pc })}
-              className="mx-2"
+              type="number"
+              name="people"
+              min="1"
+              value={input.people}
+              onChange={handleInput}
+              placeholder="Ingrese la cantidad"
             />
-            PC
+            <br />
+            <Button
+              className="my-2"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              className="mt-1"
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
-          <div>
-            <input
-              type="checkbox"
-              name="radio"
-              value={input.radio}
-              checked={input.radio}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, radio: !input.radio })}
-              className="mx-2"
-            />
-            Radio
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="impresora"
-              value={input.impresora}
-              checked={input.impresora}
-              defaultChecked={false}
-              onClick={() =>
-                setInput({ ...input, impresora: !input.impresora })}
+        ) : (
+          <div />
+        )}
+        {/* question2 */}
+        {location === "question2" ? (
+          <div className="font-italic text-muted">
+            <h2>¿Cuales de estos electrodomesticos utilizas?</h2>
+            <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
+            <div>
+              <input
+                type="checkbox"
+                name="pc"
+                value={input.pc}
+                checked={input.pc}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, pc: !input.pc })}
                 className="mx-2"
-            />
-            Impresora
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="microondas"
-              value={input.microondas}
-              checked={input.microondas}
-              defaultChecked={false}
-              onClick={() =>
-                setInput({ ...input, microondas: !input.microondas })}
+              />
+              PC
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="radio"
+                value={input.radio}
+                checked={input.radio}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, radio: !input.radio })}
                 className="mx-2"
-            />
-            Microondas
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="dispenser"
-              value={input.dispenser}
-              checked={input.dispenser}
-              defaultChecked={false}
-              onClick={() =>
-                setInput({ ...input, dispenser: !input.dispenser })}
+              />
+              Radio
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="impresora"
+                value={input.impresora}
+                checked={input.impresora}
+                defaultChecked={false}
+                onClick={() =>
+                  setInput({ ...input, impresora: !input.impresora })
+                }
                 className="mx-2"
-            />
-            Dispenser
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="pava"
-              value={input.pava}
-              checked={input.pava}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, pava: !input.pava })}
-              className="mx-2"
-            />
-            Pava electrica
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="lavarropa"
-              value={input.lavarropa}
-              checked={input.lavarropa}
-              defaultChecked={false}
-              onClick={() =>
-                setInput({ ...input, lavarropa: !input.lavarropa })}
+              />
+              Impresora
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="microondas"
+                value={input.microondas}
+                checked={input.microondas}
+                defaultChecked={false}
+                onClick={() =>
+                  setInput({ ...input, microondas: !input.microondas })
+                }
                 className="mx-2"
-            />
-            Lavarropa
+              />
+              Microondas
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="dispenser"
+                value={input.dispenser}
+                checked={input.dispenser}
+                defaultChecked={false}
+                onClick={() =>
+                  setInput({ ...input, dispenser: !input.dispenser })
+                }
+                className="mx-2"
+              />
+              Dispenser
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pava"
+                value={input.pava}
+                checked={input.pava}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, pava: !input.pava })}
+                className="mx-2"
+              />
+              Pava electrica
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="lavarropa"
+                value={input.lavarropa}
+                checked={input.lavarropa}
+                defaultChecked={false}
+                onClick={() =>
+                  setInput({ ...input, lavarropa: !input.lavarropa })
+                }
+                className="mx-2"
+              />
+              Lavarropa
+            </div>
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
+        ) : (
+          <div />
+        )}
+        {/* question 3 */}
+        {location === "question3" ? (
+          <div className="font-italic text-muted">
+            <h2>¿Cuales de estos utilizas con frecuencia?</h2>
+            <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
+            <div>
+              <input
+                type="checkbox"
+                name="cocina"
+                value={input.cocina}
+                checked={input.cocina}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, cocina: !input.cocina })}
+                className="mx-2"
+              />
+              Cocina
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="termotanque"
+                value={input.termotanque}
+                checked={input.termotanque}
+                defaultChecked={false}
+                onClick={() =>
+                  setInput({ ...input, termotanque: !input.termotanque })
+                }
+                className="mx-2"
+              />
+              Termotanque
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="estufa"
+                value={input.estufa}
+                checked={input.estufa}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, estufa: !input.estufa })}
+                className="mx-2"
+              />
+              Estufa
+            </div>
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
+          </div>
+
           <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
           <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
@@ -358,41 +482,104 @@ export default function Calculator() {
           <h2>¿Cuales de estos utilizas con frecuencia?</h2>
           <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
           <div>
+
             <input
               type="checkbox"
-              name="cocina"
-              value={input.cocina}
-              checked={input.cocina}
+              name="useCar"
+              value={input.useCar}
+              checked={input.useCar}
               defaultChecked={false}
-              onClick={() => setInput({ ...input, cocina: !input.cocina })}
+              onClick={() => setInput({ ...input, useCar: !input.useCar })}
               className="mx-2"
             />
-            Cocina
+            <h6>(Marca SOLO si tienes vehiculo propio)</h6>
+            <br />
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
-          <div>
+        ) : (
+          <div />
+        )}
+        {/* question 4A */}
+        {location === "question4A" ? (
+          <div className="font-italic text-muted">
+            <h2 className="mb-4">¿Que distancia recorres aprox. al mes?</h2>
             <input
-              type="checkbox"
-              name="termotanque"
-              value={input.termotanque}
-              checked={input.termotanque}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, termotanque: !input.termotanque })}
-              className="mx-2"
+              type="number"
+              name="carDistance"
+              min="1"
+              value={input.carDistance}
+              onChange={handleInput}
+              placeholder="Ingrese la cantidad"
             />
-            Termotanque
+            <br />
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
-          <div>
+        ) : (
+          <div />
+        )}
+        {/* question 4B */}
+        {location === "question4B" ? (
+          <div className="font-italic text-muted">
+            <h2 className="mb-4">
+              ¿Cuantas personas comparten tu auto habitualmente?
+            </h2>
             <input
-              type="checkbox"
-              name="estufa"
-              value={input.estufa}
-              checked={input.estufa}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, estufa: !input.estufa })}
-              className="mx-2"
+              type="number"
+              name="carShare"
+              min="1"
+              value={input.carShare}
+              onChange={handleInput}
+              placeholder="Ingrese la cantidad"
             />
-            Estufa
+            <br />
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
+
           <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
           <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
@@ -489,41 +676,146 @@ export default function Calculator() {
           <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
           <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
           <div>
+
             <input
               type="checkbox"
-              name="bus"
-              value={input.bus}
-              checked={input.bus}
+              name="publicTransport"
+              value={input.publicTransport}
+              checked={input.publicTransport}
               defaultChecked={false}
-              onClick={() => setInput({ ...input, bus: !input.bus })}
-              className="mx-2"
+              onClick={() =>
+                setInput({ ...input, publicTransport: !input.publicTransport })
+              }
             />
-            Bus
+            <br />
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
-          <div>
+        ) : (
+          <div />
+        )}
+        {/* question 5A */}
+        {location === "question5A" ? (
+          <div className="font-italic text-muted">
+            <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
+            <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
+            <div>
+              <input
+                type="checkbox"
+                name="bus"
+                value={input.bus}
+                checked={input.bus}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, bus: !input.bus })}
+                className="mx-2"
+              />
+              Bus
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="subway"
+                value={input.subway}
+                checked={input.subway}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, subway: !input.subway })}
+                className="mx-2"
+              />
+              Subte
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="train"
+                value={input.train}
+                checked={input.train}
+                defaultChecked={false}
+                onClick={() => setInput({ ...input, train: !input.train })}
+                className="mx-2"
+              />
+              Tren
+            </div>
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
+          </div>
+        ) : (
+          <div />
+        )}
+        {/* question 5B */}
+        {location === "question5B" ? (
+          <div className="font-italic text-muted">
+            <h2 className="mb-4">
+              ¿Cuantas horas diarias viajas en transporte publico?
+            </h2>
             <input
-              type="checkbox"
-              name="subway"
-              value={input.subway}
-              checked={input.subway}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, subway: !input.subway })}
-              className="mx-2"
+              type="number"
+              name="publicHours"
+              min="1"
+              value={input.publicHours}
+              onChange={handleInput}
+              placeholder="Ingrese la cantidad"
             />
-            Subte
+            <br />
+            <Button
+              className="my-3"
+              variant="success"
+              size="lg"
+              onClick={() => handleButton()}
+            >
+              Continuar
+            </Button>
+            <br />
+            <Button
+              variant="success"
+              size="sm"
+              onClick={() => setLocation("start")}
+            >
+              Volver al Inicio
+            </Button>
           </div>
-          <div>
-            <input
-              type="checkbox"
-              name="train"
-              value={input.train}
-              checked={input.train}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, train: !input.train })}
-              className="mx-2"
-            />
-            Tren
+        ) : (
+          <div />
+        )}
+        {location === "result" ? (
+          <div className="font-italic text-muted">
+            <h3 className="mb-4">El Resultado es: {input.total}</h3>
+            <Button
+              className="my-3"
+              variant="success"
+              onClick={() => handleButton()}
+            >
+              Reiniciar
+            </Button>
           </div>
+
           <Button className="my-3" variant="flat" size="lg" onClick={() => handleButton()}>Continuar</Button>
           <br />
           <Button variant="flat" size="sm" onClick={() => setLocation("start")}>Volver al Inicio</Button>
@@ -560,6 +852,7 @@ export default function Calculator() {
         <div />
       )}
     </Jumbotron>
+
     </>
   );
 }
