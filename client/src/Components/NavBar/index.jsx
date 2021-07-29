@@ -7,7 +7,7 @@ const NavBar = () => {
   const { push } = useHistory();
   return (
     <>
-      <NavbarBootstrap collapseOnSelect bg="white">
+      <NavbarBootstrap collapseOnSelect expand="lg" bg="white">
         <NavbarBootstrap.Brand className="font-weight-bold text-muted">
           <LogoKawsayComponent />
         </NavbarBootstrap.Brand>

@@ -5,7 +5,8 @@ export default function FAQ() {
   const [location, setLocation] = useState("");
 
   return (
-    <div>
+    <div className="cover font-italic text-muted"
+    style={{ backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")` }}>
       <div>
         <h2 className="mb-5 text-center">PREGUNTAS FRECUENTES</h2>
         <ListGroup horizontal className="mb-4 shadow text-center">
