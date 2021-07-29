@@ -204,7 +204,7 @@ export default function Calculator() {
       >
         {/* start */}
         {location === "start" ? (
-          <div>
+          <div className='min-vh-100'>
             <div>
               <h1 className="my-2 parH text-left font-weight-bold pl-2">
                 <span className="titleH">¡Bienvenido a </span>Kawsay!
