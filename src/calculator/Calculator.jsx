@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Jumbotron } from 'react-bootstrap';
-import { Question4, Start } from './Steps';
+import {
+  Question1,
+  Question2,
+  Question3,
+  Question4,
+  Question4A,
+  Question4B,
+  Start,
+} from './Steps';
 
 export default function Calculator() {
   const [input, setInput] = useState({
@@ -216,73 +224,9 @@ export default function Calculator() {
         {/* question 4 */}
         {location === 'question4' ? <Question4 /> : <div />}
         {/* question 4A */}
-        {location === 'question4A' ? (
-          <div className="font-italic text-muted">
-            <h2 className="mb-4">¿Que distancia recorres aprox. al mes?</h2>
-            <input
-              type="number"
-              name="carDistance"
-              min="1"
-              value={input.carDistance}
-              onChange={handleInput}
-              placeholder="Ingrese la cantidad"
-            />
-            <br />
-            <Button
-              className="my-3"
-              variant="flat"
-              size="lg"
-              onClick={() => handleButton()}
-            >
-              Continuar
-            </Button>
-            <br />
-            <Button
-              variant="flat"
-              size="sm"
-              onClick={() => setLocation('start')}
-            >
-              Volver al Inicio
-            </Button>
-          </div>
-        ) : (
-          <div />
-        )}
+        {location === 'question4A' ? <Question4A /> : <div />}
         {/* question 4B */}
-        {location === 'question4B' ? (
-          <div className="font-italic text-muted">
-            <h2 className="mb-4">
-              ¿Cuantas personas comparten tu auto habitualmente?
-            </h2>
-            <input
-              type="number"
-              name="carShare"
-              min="1"
-              value={input.carShare}
-              onChange={handleInput}
-              placeholder="Ingrese la cantidad"
-            />
-            <br />
-            <Button
-              className="my-3"
-              variant="flat"
-              size="lg"
-              onClick={() => handleButton()}
-            >
-              Continuar
-            </Button>
-            <br />
-            <Button
-              variant="flat"
-              size="sm"
-              onClick={() => setLocation('start')}
-            >
-              Volver al Inicio
-            </Button>
-          </div>
-        ) : (
-          <div />
-        )}
+        {location === 'question4B' ? <Question4B /> : <div />}
         {/* question 5 */}
         {location === 'question5' ? (
           <div className="font-italic text-muted">
