@@ -7,6 +7,10 @@ import {
   Question4,
   Question4A,
   Question4B,
+  Question5,
+  Question5A,
+  Question5B,
+  Result,
   Start,
 } from './Steps';
 
@@ -228,178 +232,13 @@ export default function Calculator() {
         {/* question 4B */}
         {location === 'question4B' ? <Question4B /> : <div />}
         {/* question 5 */}
-        {location === 'question5' ? (
-          <div className="font-italic text-muted">
-            <h2 className="mb-4">¿Usas con frecuencia transporte publico?</h2>
-            <input
-              type="checkbox"
-              name="publicTransport"
-              value={input.publicTransport}
-              checked={input.publicTransport}
-              defaultChecked={false}
-              onClick={() =>
-                setInput({ ...input, publicTransport: !input.publicTransport })
-              }
-            />
-            <br />
-            <Button
-              className="my-3"
-              variant="flat"
-              size="lg"
-              onClick={() => handleButton()}
-            >
-              Continuar
-            </Button>
-            <br />
-            <Button
-              variant="flat"
-              size="sm"
-              onClick={() => setLocation('start')}
-            >
-              Volver al Inicio
-            </Button>
-          </div>
-        ) : (
-          <div />
-        )}
+        {location === 'question5' ? <Question5 /> : <div />}
         {/* question 5A */}
-        {location === 'question5A' ? (
-          <div className="font-italic text-muted">
-            <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
-            <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
-            <div>
-              <input
-                type="checkbox"
-                name="bus"
-                value={input.bus}
-                checked={input.bus}
-                defaultChecked={false}
-                onClick={() => setInput({ ...input, bus: !input.bus })}
-                className="mx-2"
-              />
-              Bus
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                name="subway"
-                value={input.subway}
-                checked={input.subway}
-                defaultChecked={false}
-                onClick={() => setInput({ ...input, subway: !input.subway })}
-                className="mx-2"
-              />
-              Subte
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                name="train"
-                value={input.train}
-                checked={input.train}
-                defaultChecked={false}
-                onClick={() => setInput({ ...input, train: !input.train })}
-                className="mx-2"
-              />
-              Tren
-            </div>
-            <Button
-              className="my-3"
-              variant="flat"
-              size="lg"
-              onClick={() => handleButton()}
-            >
-              Continuar
-            </Button>
-            <br />
-            <Button
-              variant="flat"
-              size="sm"
-              onClick={() => setLocation('start')}
-            >
-              Volver al Inicio
-            </Button>
-          </div>
-        ) : (
-          <div />
-        )}
+        {location === 'question5A' ? <Question5A /> : <div />}
         {/* question 5B */}
-        {location === 'question5B' ? (
-          <div className="font-italic text-muted">
-            <h2 className="mb-4">
-              ¿Cuantas horas diarias viajas en transporte publico?
-            </h2>
-            <input
-              type="number"
-              name="publicHours"
-              min="1"
-              value={input.publicHours}
-              onChange={handleInput}
-              placeholder="Ingrese la cantidad"
-            />
-            <br />
-            <Button
-              className="my-3"
-              variant="flat"
-              size="lg"
-              onClick={() => handleButton()}
-            >
-              Continuar
-            </Button>
-            <br />
-            <Button
-              variant="flat"
-              size="sm"
-              onClick={() => setLocation('start')}
-            >
-              Volver al Inicio
-            </Button>
-          </div>
-        ) : (
-          <div />
-        )}
-        {location === 'result' ? (
-          <div className="font-italic text-muted">
-            <h3 className="mb-4">
-              El Resultado es: {input.total} Toneladas anuales de emision de
-              huella de carbono.
-            </h3>
-            <p className="parH pb-3 pl-2">
-              <h6 className="font-weight-bold ">
-                ¿Sabías que los árboles funcionan como termorreguladores
-                capturando estas emisiones de co2?
-              </h6>{' '}
-              Se calcula que una hectárea de bosque mayor a 20 años puede llegar
-              a capturar las emisiones generadas por una persona por año.
-              <div>
-                <p className="parH mb-n3 mt-3 py-3 pl-2">
-                  <h5 className="font-weight-bold">
-                    ¿Qué esperas para mitigar tu huella de carbono? Podés
-                    empezar ahora.
-                  </h5>
-                </p>
-                <div className="ml-5 mt-2">
-                  <Button
-                    variant="flat"
-                    size="lg"
-                    onClick={() => handleButton()}
-                  >
-                    Siguiente
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="flat"
-                    onClick={() => handleButton()}
-                  >
-                    Reiniciar
-                  </Button>
-                </div>
-              </div>
-            </p>
-          </div>
-        ) : (
-          <div />
-        )}
+        {location === 'question5B' ? <Question5B /> : <div />}
+        {/* result */}
+        {location === 'result' ? <Result /> : <div />}
       </Jumbotron>
     </>
   );
