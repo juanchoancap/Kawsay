@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { Container, ListGroup } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { Container, ListGroup } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 export default function EcoAdvice() {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState('');
   const { push } = useHistory();
+
   return (
     <div
       className="cover font-italic text-muted"
@@ -18,42 +19,42 @@ export default function EcoAdvice() {
           <ListGroup.Item
             action
             variant="success"
-            onClick={() => setLocation("arboles")}
+            onClick={() => setLocation('arboles')}
           >
             Plantá árboles
           </ListGroup.Item>
           <ListGroup.Item
             action
             variant="success"
-            onClick={() => setLocation("energia")}
+            onClick={() => setLocation('energia')}
           >
             Uso racional de la energía
           </ListGroup.Item>
           <ListGroup.Item
             action
             variant="success"
-            onClick={() => setLocation("movilidad")}
+            onClick={() => setLocation('movilidad')}
           >
             Movilidad
           </ListGroup.Item>
           <ListGroup.Item
             action
             variant="success"
-            onClick={() => setLocation("residuos")}
+            onClick={() => setLocation('residuos')}
           >
             Residuos
           </ListGroup.Item>
           <ListGroup.Item
             action
             variant="success"
-            onClick={() => setLocation("alimentacion")}
+            onClick={() => setLocation('alimentacion')}
           >
             Alimentación
           </ListGroup.Item>
         </ListGroup>
       </div>
       <div>
-        {location === "energia" ? (
+        {location === 'energia' ? (
           <div className="my-1 font-italic">
             <Container className="ml-3 w-50">
               <p className="my-1 font-italic">
@@ -104,7 +105,7 @@ export default function EcoAdvice() {
         ) : (
           <div />
         )}
-        {location === "movilidad" ? (
+        {location === 'movilidad' ? (
           <div className="my-1 font-italic">
             <Container className="ml-3 w-50">
               <p className="my-1">
@@ -141,7 +142,7 @@ export default function EcoAdvice() {
         ) : (
           <div />
         )}
-        {location === "residuos" ? (
+        {location === 'residuos' ? (
           <div className="my-1 font-italic">
             <Container className="ml-3 w-50">
               <p className="my-1">
@@ -173,7 +174,7 @@ export default function EcoAdvice() {
         ) : (
           <div />
         )}
-        {location === "alimentacion" ? (
+        {location === 'alimentacion' ? (
           <div className="my-1 font-italic">
             <Container className="ml-3 w-50">
               <p className="my-1">
@@ -198,7 +199,7 @@ export default function EcoAdvice() {
         ) : (
           <div />
         )}
-        {location === "arboles" ? (
+        {location === 'arboles' ? (
           <div className="my-1 font-italic">
             <Container className="ml-3 w-50">
               &#10004; Los árboles retienen CO2, un árbol elimina entre 350 y

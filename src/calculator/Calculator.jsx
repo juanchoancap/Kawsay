@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Button, Jumbotron } from "react-bootstrap";
-import { Start } from "./Steps";
+import React, { useState } from 'react';
+import { Button, Jumbotron } from 'react-bootstrap';
+import { Question4, Start } from './Steps';
 
 export default function Calculator() {
   const [input, setInput] = useState({
@@ -35,11 +35,11 @@ export default function Calculator() {
     total: 1,
   });
 
-  const [location, setLocation] = useState("start");
+  const [location, setLocation] = useState('start');
 
   const handleButton = () => {
     switch (location) {
-      case "start":
+      case 'start':
         setInput({
           people: 1,
           pc: false,
@@ -66,31 +66,31 @@ export default function Calculator() {
 
           total: 1,
         });
-        setLocation("question1");
+        setLocation('question1');
         break;
-      case "question1":
-        setLocation("question2");
+      case 'question1':
+        setLocation('question2');
         break;
-      case "question2":
-        setLocation("question3");
+      case 'question2':
+        setLocation('question3');
         break;
-      case "question3":
-        setLocation("question4");
+      case 'question3':
+        setLocation('question4');
         break;
-      case "question4":
+      case 'question4':
         if (input.useCar) {
-          setLocation("question4A");
+          setLocation('question4A');
         } else {
-          setLocation("question5");
+          setLocation('question5');
         }
         break;
-      case "question4A":
-        setLocation("question4B");
+      case 'question4A':
+        setLocation('question4B');
         break;
-      case "question4B":
-        setLocation("question5");
+      case 'question4B':
+        setLocation('question5');
         break;
-      case "question5":
+      case 'question5':
         var edesur = 0;
         var metrogas = 0;
         if (input.pc) {
@@ -141,15 +141,15 @@ export default function Calculator() {
           total: sub,
         });
         if (input.publicTransport) {
-          setLocation("question5A");
+          setLocation('question5A');
         } else {
-          setLocation("result");
+          setLocation('result');
         }
         break;
-      case "question5A":
-        setLocation("question5B");
+      case 'question5A':
+        setLocation('question5B');
         break;
-      case "question5B":
+      case 'question5B':
         var quantity = 0;
         var totalPublic = 0;
         if (input.train) {
@@ -177,13 +177,14 @@ export default function Calculator() {
           total: totalPublic.toFix(2),
         });
 
-        setLocation("result");
+        setLocation('result');
         break;
       default:
-        setLocation("start");
+        setLocation('start');
         break;
     }
   };
+
   const handleInput = (e) => {
     if (e.target.value < 1) {
       setInput({
@@ -205,57 +206,17 @@ export default function Calculator() {
         style={{ backgroundImage: `url("http://i.ibb.co/jgZph3V/fondo.png")` }}
       >
         {/* start */}
-        {location === "start" ? (<Start/>) : (
-          <div />
-        )}
+        {location === 'start' ? <Start /> : <div />}
         {/* question1 */}
-        {location === "question1" ? (<Question1/>) : (
-          <div />
-        )}
+        {location === 'question1' ? <Question1 /> : <div />}
         {/* question2 */}
-        {location === "question2" ? (<Question2/>) : (
-          <div />
-        )}
+        {location === 'question2' ? <Question2 /> : <div />}
         {/* question 3 */}
-        {location === "question3" ? (<Question3/>) : (
-          <div />
-        )}
+        {location === 'question3' ? <Question3 /> : <div />}
         {/* question 4 */}
-        {location === "question4" ? (
-          <div className="font-italic text-muted">
-            <h2 className="mb-4">¿Tenes vehiculo propio?</h2>
-            <input
-              type="checkbox"
-              name="useCar"
-              value={input.useCar}
-              checked={input.useCar}
-              defaultChecked={false}
-              onClick={() => setInput({ ...input, useCar: !input.useCar })}
-              className="mx-2"
-            />
-            <br />
-            <Button
-              className="my-3"
-              variant="flat"
-              size="lg"
-              onClick={() => handleButton()}
-            >
-              Continuar
-            </Button>
-            <br />
-            <Button
-              variant="flat"
-              size="sm"
-              onClick={() => setLocation("start")}
-            >
-              Volver al Inicio
-            </Button>
-          </div>
-        ) : (
-          <div />
-        )}
+        {location === 'question4' ? <Question4 /> : <div />}
         {/* question 4A */}
-        {location === "question4A" ? (
+        {location === 'question4A' ? (
           <div className="font-italic text-muted">
             <h2 className="mb-4">¿Que distancia recorres aprox. al mes?</h2>
             <input
@@ -279,7 +240,7 @@ export default function Calculator() {
             <Button
               variant="flat"
               size="sm"
-              onClick={() => setLocation("start")}
+              onClick={() => setLocation('start')}
             >
               Volver al Inicio
             </Button>
@@ -288,7 +249,7 @@ export default function Calculator() {
           <div />
         )}
         {/* question 4B */}
-        {location === "question4B" ? (
+        {location === 'question4B' ? (
           <div className="font-italic text-muted">
             <h2 className="mb-4">
               ¿Cuantas personas comparten tu auto habitualmente?
@@ -314,7 +275,7 @@ export default function Calculator() {
             <Button
               variant="flat"
               size="sm"
-              onClick={() => setLocation("start")}
+              onClick={() => setLocation('start')}
             >
               Volver al Inicio
             </Button>
@@ -323,7 +284,7 @@ export default function Calculator() {
           <div />
         )}
         {/* question 5 */}
-        {location === "question5" ? (
+        {location === 'question5' ? (
           <div className="font-italic text-muted">
             <h2 className="mb-4">¿Usas con frecuencia transporte publico?</h2>
             <input
@@ -349,7 +310,7 @@ export default function Calculator() {
             <Button
               variant="flat"
               size="sm"
-              onClick={() => setLocation("start")}
+              onClick={() => setLocation('start')}
             >
               Volver al Inicio
             </Button>
@@ -358,7 +319,7 @@ export default function Calculator() {
           <div />
         )}
         {/* question 5A */}
-        {location === "question5A" ? (
+        {location === 'question5A' ? (
           <div className="font-italic text-muted">
             <h2>¿Cuales de estos transportes utilizas con frecuencia?</h2>
             <h4 className="mb-4">(puede marcar tantos como quiera)</h4>
@@ -410,7 +371,7 @@ export default function Calculator() {
             <Button
               variant="flat"
               size="sm"
-              onClick={() => setLocation("start")}
+              onClick={() => setLocation('start')}
             >
               Volver al Inicio
             </Button>
@@ -419,7 +380,7 @@ export default function Calculator() {
           <div />
         )}
         {/* question 5B */}
-        {location === "question5B" ? (
+        {location === 'question5B' ? (
           <div className="font-italic text-muted">
             <h2 className="mb-4">
               ¿Cuantas horas diarias viajas en transporte publico?
@@ -445,7 +406,7 @@ export default function Calculator() {
             <Button
               variant="flat"
               size="sm"
-              onClick={() => setLocation("start")}
+              onClick={() => setLocation('start')}
             >
               Volver al Inicio
             </Button>
@@ -453,7 +414,7 @@ export default function Calculator() {
         ) : (
           <div />
         )}
-        {location === "result" ? (
+        {location === 'result' ? (
           <div className="font-italic text-muted">
             <h3 className="mb-4">
               El Resultado es: {input.total} Toneladas anuales de emision de
@@ -463,7 +424,7 @@ export default function Calculator() {
               <h6 className="font-weight-bold ">
                 ¿Sabías que los árboles funcionan como termorreguladores
                 capturando estas emisiones de co2?
-              </h6>{" "}
+              </h6>{' '}
               Se calcula que una hectárea de bosque mayor a 20 años puede llegar
               a capturar las emisiones generadas por una persona por año.
               <div>
